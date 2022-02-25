@@ -1,0 +1,302 @@
+{
+	"name": "IngameMenu",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Options"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "MainMenu"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 747840300983394,
+					"parameters": {
+						"key": 80
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "InventoryBackground",
+					"sid": 591591544046570,
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 506932112458995,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "MenuIngame",
+							"sid": 795193189092292
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 827615865234657,
+							"parameters": {
+								"name": "\"InGameMenu\"",
+								"parameter-n": [
+									"1"
+								]
+							}
+						}
+					],
+					"sid": 163250138843988
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 363122948862765
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 704616619812948,
+							"parameters": {
+								"name": "\"InGameMenu\"",
+								"parameter-n": [
+									"0"
+								]
+							}
+						}
+					],
+					"sid": 649558250307401
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 851783495394200,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "OptionBack"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 556423084713940,
+					"parameters": {
+						"name": "\"InGameMenu\"",
+						"parameter-n": [
+							"1"
+						]
+					}
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 856213317519020,
+					"parameters": {
+						"slot": "\"AlegoriaZaim-Savedgame\""
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 337376100831474
+				}
+			],
+			"sid": 454993331432698
+		},
+		{
+			"eventType": "comment",
+			"text": "Open or close the in game menu"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 362470025915461,
+					"parameters": {
+						"name": "\"InGameMenu\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 370547467669071,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "Function",
+							"sid": 455292341444585,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 578251760836984,
+							"parameters": {
+								"name": "\"Pause\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MenuIngame",
+							"sid": 104609364655530,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Tutorial",
+							"sid": 896705933826538,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "OptionBack",
+							"sid": 911918895031559,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NoEventText",
+							"sid": 925941947723763,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SliderMusic",
+							"sid": 534979310329043,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SliderSoundEffects",
+							"sid": 868885722835700,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 416382999573675
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "Function",
+							"sid": 817473281224937,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 503766908197924,
+							"parameters": {
+								"name": "\"UnPause\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MenuIngame",
+							"sid": 828589013803997,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Tutorial",
+							"sid": 205154967830231,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "OptionBack",
+							"sid": 615454622674078,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NoEventText",
+							"sid": 574039297444188,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SliderMusic",
+							"sid": 960043052114419,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SliderSoundEffects",
+							"sid": 957528750335805,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 220992756728897
+				}
+			]
+		}
+	],
+	"sid": 857332934175513
+}

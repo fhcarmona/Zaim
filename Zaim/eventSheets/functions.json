@@ -1,0 +1,2194 @@
+{
+	"name": "Functions",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ActualLanguage",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 474232026805606
+		},
+		{
+			"eventType": "variable",
+			"name": "MusicVolume",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 819190486087189
+		},
+		{
+			"eventType": "variable",
+			"name": "SFXVolume",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 499512292535545
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 533691737192422
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 601071026507798,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"\"E1M1\""
+						]
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 128700495415109,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"\"MainMenu\""
+						]
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 543258922643383,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"\"Options\""
+						]
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 109218089216170,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"\"Loader\""
+						]
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 192514530322516,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"\"PipeMinigame\""
+						]
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 264678885090165,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"\"StoneMinigame\""
+						]
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Tutorial",
+					"sid": 467505161649787,
+					"parameters": {
+						"frame-number": "ActualLanguage = 0 ? 0 : 1"
+					}
+				}
+			],
+			"sid": 130804546786983
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions [Local Storage]",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 339458804794958,
+							"parameters": {
+								"name": "\"DefaultLocalStorage\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 153240709624412,
+							"parameters": {
+								"key": "\"SfxVolume\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 411638532888890,
+							"parameters": {
+								"key": "\"MusicVolume\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 637011395363444,
+							"parameters": {
+								"key": "\"Language\""
+							}
+						}
+					],
+					"sid": 808193206581065
+				},
+				{
+					"eventType": "comment",
+					"text": "SFX"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 861388630454432,
+							"parameters": {
+								"key": "\"SfxVolume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 888945019487269,
+							"parameters": {
+								"key": "\"SfxVolume\""
+							}
+						}
+					],
+					"sid": 666570091035670
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 490018239872049,
+							"parameters": {
+								"key": "\"SfxVolume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 306880883679800,
+							"parameters": {
+								"key": "\"SfxVolume\"",
+								"value": "0"
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 994605074044733,
+							"parameters": {
+								"key": "\"SfxVolume\""
+							}
+						}
+					],
+					"sid": 365367882906814
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 762031454014013,
+							"parameters": {
+								"key": "\"SfxVolume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 390237570147579,
+							"parameters": {
+								"variable": "SFXVolume",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 365182000259189,
+							"parameters": {
+								"tag": "\"sfx\"",
+								"db": "SFXVolume"
+							}
+						}
+					],
+					"sid": 892179426528367
+				},
+				{
+					"eventType": "comment",
+					"text": "Music"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 797722751147379,
+							"parameters": {
+								"key": "\"MusicVolume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 162198085555451,
+							"parameters": {
+								"key": "\"MusicVolume\""
+							}
+						}
+					],
+					"sid": 687590223286724
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 228453387361758,
+							"parameters": {
+								"key": "\"MusicVolume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 782483839858707,
+							"parameters": {
+								"key": "\"MusicVolume\"",
+								"value": "0"
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 506269907399147,
+							"parameters": {
+								"key": "\"MusicVolume\""
+							}
+						}
+					],
+					"sid": 116756696473425
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 239997798306937,
+							"parameters": {
+								"key": "\"MusicVolume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 277525483677449,
+							"parameters": {
+								"variable": "MusicVolume",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 253483381171374,
+							"parameters": {
+								"tag": "\"music\"",
+								"db": "MusicVolume"
+							}
+						}
+					],
+					"sid": 440424415490286
+				},
+				{
+					"eventType": "comment",
+					"text": "Language"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 788178751491019,
+							"parameters": {
+								"key": "\"Language\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 748897724018548,
+							"parameters": {
+								"key": "\"Language\""
+							}
+						}
+					],
+					"sid": 930264399495737
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 465163645870811,
+							"parameters": {
+								"key": "\"Language\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 665993468351770,
+							"parameters": {
+								"key": "\"Language\"",
+								"value": "0"
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 344530631481640,
+							"parameters": {
+								"key": "\"Language\""
+							}
+						}
+					],
+					"sid": 499264542200441
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 285811247797585,
+							"parameters": {
+								"key": "\"Language\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 669239176035921,
+							"parameters": {
+								"variable": "ActualLanguage",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 717898508435038
+				}
+			],
+			"sid": 581080346271237
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions [Time]",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Simulate Pause without changing the time scale"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 229185657847966,
+							"parameters": {
+								"name": "\"Pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Gongo",
+							"sid": 597839818125040,
+							"parameters": {
+								"animation": "\"Idle_\" & Gongo.VisionAngle",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Gaita",
+							"sid": 634630530286980,
+							"parameters": {
+								"animation": "\"Idle_\" & Gaita.VisionAngle",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Gongo",
+							"sid": 627670328706727,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": false
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Gaita",
+							"sid": 226850993215098,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": false
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 594440273797164,
+							"parameters": {
+								"group-name": "\"Movimentacao\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 196316146327828,
+							"parameters": {
+								"group-name": "\"Enemies\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 168706169944077,
+							"parameters": {
+								"group-name": "\"Animações\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 303919149614323,
+							"parameters": {
+								"group-name": "\"Player Skills\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 287172878725925,
+							"parameters": {
+								"group-name": "\"Enemies Battle AI\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 727407569378340,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Change to idle the animation of the player until game is in the pause (just visual preference)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-at-xy",
+									"objectClass": "ArrayInventory",
+									"sid": 899167802611875,
+									"parameters": {
+										"x": "1",
+										"y": "0",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 748531118961656,
+									"parameters": {
+										"animation": "\"Idle_Unarmed_\" & Player.VisionAngle",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 529643203302903
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-at-xy",
+									"objectClass": "ArrayInventory",
+									"sid": 626211211420531,
+									"parameters": {
+										"x": "1",
+										"y": "0",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 726552971328927,
+									"parameters": {
+										"animation": "\"Idle_Armed_\" & Player.VisionAngle",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 552192814914774
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Unpause"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 591424984204583,
+							"parameters": {
+								"name": "\"UnPause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Gongo",
+							"sid": 481614462764016,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": true
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Gaita",
+							"sid": 139950089536647,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": true
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 124983925168234,
+							"parameters": {
+								"group-name": "\"Movimentacao\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 577541858006983,
+							"parameters": {
+								"group-name": "\"Enemies\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 890925617932309,
+							"parameters": {
+								"group-name": "\"Animações\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 180230833279374,
+							"parameters": {
+								"group-name": "\"Player Skills\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 282828068039818,
+							"parameters": {
+								"group-name": "\"Enemies Battle AI\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 897492039786975
+				}
+			],
+			"sid": 622763592354361
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions [Enemies]",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 365453187997250,
+							"parameters": {
+								"name": "\"RespawnEnemies\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Gongo",
+							"sid": 376442874034643
+						},
+						{
+							"id": "destroy",
+							"objectClass": "DropHeart",
+							"sid": 326776456454253
+						}
+					],
+					"sid": 573420836694893,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 183021689071889,
+									"parameters": {
+										"object": "SpawnEnemyFollow"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 152562091405044,
+									"parameters": {
+										"object-to-create": "Gongo",
+										"layer": "\"Player\"",
+										"x": "SpawnEnemyFollow.X",
+										"y": "SpawnEnemyFollow.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gongo",
+									"sid": 665354381711839,
+									"parameters": {
+										"instance-variable": "InitialX",
+										"value": "SpawnEnemyFollow.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gongo",
+									"sid": 131748556793702,
+									"parameters": {
+										"instance-variable": "InitialY",
+										"value": "SpawnEnemyFollow.Y"
+									}
+								}
+							],
+							"sid": 870558549888040
+						}
+					]
+				}
+			],
+			"sid": 490895544947056
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions [Mouse]",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 125868687200856,
+							"parameters": {
+								"name": "\"OptionsMouseOver\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 147276029126802,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OptionsRectangle",
+									"sid": 350312156822586,
+									"parameters": {
+										"instance-variable": "option"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 160863696174420,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 277523596706144,
+											"parameters": {
+												"object": "OptionsRectangle"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "OptionsRectangle",
+											"sid": 719100787128263,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 200056746610998
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 126636374291559,
+											"parameters": {
+												"object": "OptionsRectangle"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "OptionsRectangle",
+											"sid": 872945836661225,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 867166717294417
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 550168774288618
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions [Language]",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "Languages",
+							"sid": 731252044900179
+						}
+					],
+					"actions": [],
+					"sid": 174820272014943
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 284007608247838,
+							"parameters": {
+								"name": "\"DefaultDictionary\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 124297223937382,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "EN-US"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 897713414422479,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Levels"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 961621803316870,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Dialogues"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 841345277157061,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_RocketBroken\"",
+														"value": "\"My ship is broken, I need my biocapsule and a prism\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 203158401736615,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_RocketFixed\"",
+														"value": "\"There's nothing left to fix, time to depart\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 272254099874019,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_BridgeBefore\"",
+														"value": "\"There's a bridge mechanism here, maybe I can activated in some way\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 649089143852290,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_BridgeAfter\"",
+														"value": "\"Apparently this planet has some fauna and flora similar to Earth's\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 318000716047824,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_StonePuzzleIncompleted\"",
+														"value": "\"What an intriguing stone, this thing emits a sequence of sound and colors, maybe is a alien mechanism? \""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 989692652147576,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_StonePuzzleCompleted\"",
+														"value": "\"The shiny mineral can be use to fix the ship\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 614771885587239,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_EndingDemo\"",
+														"value": "\"A cave, maybe there's something that can I use as fuel to the ship\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 200287775617349,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_Biocapsule\"",
+														"value": "\"My biocapsule, now I can fix one part of the ship\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 291816915291987,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_Bamboo\"",
+														"value": "\"This object is similar a bamboo, but seems made of steel, maybe I can use to defend myself\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 273864490787608,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_0_Mineral\"",
+														"value": "\"A mineral fall after I completed the sequence correctly, maybe can be used to fix the a part of the ship\""
+													}
+												}
+											],
+											"sid": 126005204465352
+										},
+										{
+											"eventType": "comment",
+											"text": "In Game Menu"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 740084997874337,
+													"parameters": {
+														"key": "\"E1M1_NoEventText_0_0\"",
+														"value": "\"Sounds Effects\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 803366486955779,
+													"parameters": {
+														"key": "\"E1M1_NoEventText_0_1\"",
+														"value": "\"Music\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 618728990017605,
+													"parameters": {
+														"key": "\"E1M1_OptionBack_0\"",
+														"value": "\"Save and Exit\""
+													}
+												}
+											],
+											"sid": 258628518464429
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Menus"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 331757310283087,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "MainMenu"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 746306888450209,
+													"parameters": {
+														"key": "\"MainMenu_MenuContinue_0\"",
+														"value": "\"Continue\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 180446084733369,
+													"parameters": {
+														"key": "\"MainMenu_MenuNewGame_0\"",
+														"value": "\"New Game\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 404832232906587,
+													"parameters": {
+														"key": "\"MainMenu_MenuOptions_0\"",
+														"value": "\"Options\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 868298569876188,
+													"parameters": {
+														"key": "\"MainMenu_MenuExit_0\"",
+														"value": "\"Exit\""
+													}
+												}
+											],
+											"sid": 777943420550728
+										},
+										{
+											"eventType": "comment",
+											"text": "Options"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 517746179834870,
+													"parameters": {
+														"key": "\"Options_NoEventText_0_0\"",
+														"value": "\"Sounds Effects\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 616176181085032,
+													"parameters": {
+														"key": "\"Options_NoEventText_0_1\"",
+														"value": "\"Music\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 218495178810926,
+													"parameters": {
+														"key": "\"Options_NoEventText_0_2\"",
+														"value": "\"Fullscreen\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 640941841996712,
+													"parameters": {
+														"key": "\"Options_NoEventText_0_3\"",
+														"value": "\"Language\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 317329624879504,
+													"parameters": {
+														"key": "\"Options_OptionBack_0\"",
+														"value": "\"Save and Exit\""
+													}
+												}
+											],
+											"sid": 893871841185731
+										},
+										{
+											"eventType": "comment",
+											"text": "Credits"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 629621687662626,
+													"parameters": {
+														"key": "\"Credits_FinalText_0\"",
+														"value": "\"Zaim (Demo) was created with love from player to player.\" & newline & \"The Peralta Games team thank you for playing!\" & newline & newline & \"Stay alert for news and full version of Zaim\""
+													}
+												}
+											],
+											"sid": 588998687198191
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Minigames"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 269489671474853,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "PipeMinigame"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 809580875598494,
+													"parameters": {
+														"key": "\"PipeMinigame_NoEventText_0_0\"",
+														"value": "\"Bridge Instructions:\" & newline & newline & \"1. Connect the pipes\" & newline & \"2. Use every pipe (leak problem)\" & newline & \"3. When every connected\" & newline &\"  3.1. Click on right grey button\" & newline & \"  3.2. Wait to bridge extends\""
+													}
+												}
+											],
+											"sid": 397757852540520
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "PT-BR"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 274771474558864,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Levels"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 364294364278084,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Dialogues"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 940372806245392,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_RocketBroken\"",
+														"value": "\"Minha nave está quebrada, preciso de minha biocapsula e um prisma\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 129374179916078,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_RocketFixed\"",
+														"value": "\"Não resta nada mais a consertar, hora de partir\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 455099766055965,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_BridgeBefore\"",
+														"value": "\"Há um mecânismo aqui na ponte, talvez eu consiga ativa-la de alguma forma\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 460123881332296,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_BridgeAfter\"",
+														"value": "\"Aparentemente este planeta tem alguma fauna e flora similar ao da Terra\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 850203290118564,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_StonePuzzleIncompleted\"",
+														"value": "\"Que pedra intrigante, ela emite uma sequência de som e cores, talvez seja algum mecânismo alienigena?\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 564159847235696,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_StonePuzzleCompleted\"",
+														"value": "\"O minerio brilhante pode me ajudar a consertar uma parte da nave\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 703553835349562,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_EndingDemo\"",
+														"value": "\"Uma caverna, talvez eu consiga encontrar algo para usar como combustível da minha nave\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 162432707572304,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_Biocapsule\"",
+														"value": "\"Minha biocapsula, devo conseguir arrumar uma parte da nave com ela\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 850467727036898,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_Bamboo\"",
+														"value": "\"Esse objeto tem a aparência de um bambu, porém, parece ser duro como aço, talvez consiga usar para me defender\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 778984389335577,
+													"parameters": {
+														"key": "\"E1M1_BoxDialogue_1_Mineral\"",
+														"value": "\"Um minério caiu depois que completei a sequência corretamente, talvez eu consiga usar para arrumar uma parte da nave\""
+													}
+												}
+											],
+											"sid": 904132153635191
+										},
+										{
+											"eventType": "comment",
+											"text": "In Game Menu"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 761144786111488,
+													"parameters": {
+														"key": "\"E1M1_NoEventText_1_0\"",
+														"value": "\"Efeitos do Som\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 724667062691003,
+													"parameters": {
+														"key": "\"E1M1_NoEventText_1_1\"",
+														"value": "\"Música\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 830722465160179,
+													"parameters": {
+														"key": "\"E1M1_OptionBack_1\"",
+														"value": "\"Salvar e Sair\""
+													}
+												}
+											],
+											"sid": 111817845520352
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Menus"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 419781998376507,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "MainMenu"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 465453599408444,
+													"parameters": {
+														"key": "\"MainMenu_MenuContinue_1\"",
+														"value": "\"Continuar\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 980283759593404,
+													"parameters": {
+														"key": "\"MainMenu_MenuNewGame_1\"",
+														"value": "\"Novo Jogo\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 300739478387314,
+													"parameters": {
+														"key": "\"MainMenu_MenuOptions_1\"",
+														"value": "\"Opções\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 953229547564405,
+													"parameters": {
+														"key": "\"MainMenu_MenuExit_1\"",
+														"value": "\"Sair\""
+													}
+												}
+											],
+											"sid": 553315509107676
+										},
+										{
+											"eventType": "comment",
+											"text": "Options"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 870730288972066,
+													"parameters": {
+														"key": "\"Options_NoEventText_1_0\"",
+														"value": "\"Efeitos do Som\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 784211267797887,
+													"parameters": {
+														"key": "\"Options_NoEventText_1_1\"",
+														"value": "\"Música\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 554225509037024,
+													"parameters": {
+														"key": "\"Options_NoEventText_1_2\"",
+														"value": "\"Tela Cheia\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 343037001026308,
+													"parameters": {
+														"key": "\"Options_NoEventText_1_3\"",
+														"value": "\"Linguagem\""
+													}
+												},
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 671762699638459,
+													"parameters": {
+														"key": "\"Options_OptionBack_1\"",
+														"value": "\"Salvar e Sair\""
+													}
+												}
+											],
+											"sid": 175813351039727
+										},
+										{
+											"eventType": "comment",
+											"text": "Credits"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 785431188444790,
+													"parameters": {
+														"key": "\"Credits_FinalText_1\"",
+														"value": "\"Zaim (Demo) foi desenvolvido com muito amor de jogador para jogador.\" & newline & \"A Equipe Peralta Games agradece!\" & newline & newline & \"Fique atento para novidades e a versão completa de Zaim.\""
+													}
+												}
+											],
+											"sid": 446754585333025
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Minigames"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 520360564240472,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "PipeMinigame"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-key",
+													"objectClass": "Languages",
+													"sid": 791484390856032,
+													"parameters": {
+														"key": "\"PipeMinigame_NoEventText_1_0\"",
+														"value": "\"Instruções da Ponte:\" & newline & newline & \"1. Conecte os canos\" & newline & \"2. Use todos os canos (problema de vazamento)\" & newline & \"3. Quando tudo estiver conectado\" & newline & \"  3.1. Aperte o botão cinza da direita\" & newline & \"  3.2. Espere a ponte ativar\""
+													}
+												}
+											],
+											"sid": 492590941962491
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 998639357158428,
+							"parameters": {
+								"name": "\"GetLanguageText\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 980036598066343,
+							"parameters": {
+								"name": "\"DefaultDictionary\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 659064990559350,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Levels"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 261188466919246,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"E1M1\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 130780448230863,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "OptionBack",
+											"sid": 207561143506012,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))"
+											}
+										}
+									],
+									"sid": 591237113871567
+								},
+								{
+									"eventType": "comment",
+									"text": "Don't let the every tick translate system overwrite when there isn't no param"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 809993203253774,
+											"parameters": {
+												"first-value": "Function.Param(1)",
+												"comparison": 1,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "BoxDialogue",
+											"sid": 494352579474122,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & Function.Param(1))"
+											}
+										}
+									],
+									"sid": 599032192102412
+								},
+								{
+									"eventType": "comment",
+									"text": "NoEventText instances"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 970599223209078,
+											"parameters": {
+												"unique-id": "15"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 891646740987534,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 0)"
+											}
+										}
+									],
+									"sid": 222075542014902
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 805898419066081,
+											"parameters": {
+												"unique-id": "16"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 486588289043006,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 1)"
+											}
+										}
+									],
+									"sid": 571644763361886
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Menus"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 438051872528195,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"MainMenu\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 381996816839058,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "MenuContinue",
+											"sid": 374880578132186,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "MenuNewGame",
+											"sid": 767937364405406,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "MenuOptions",
+											"sid": 715513547387176,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "MenuExit",
+											"sid": 275972241193741,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))"
+											}
+										}
+									],
+									"sid": 819527294425338
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 822635959717427,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Options\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 220270186097215,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "OptionBack",
+											"sid": 142108753534293,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))"
+											}
+										}
+									],
+									"sid": 422900750555398
+								},
+								{
+									"eventType": "comment",
+									"text": "NoEventText instances"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 826758814868844,
+											"parameters": {
+												"unique-id": "6"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 605017862716604,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 0)"
+											}
+										}
+									],
+									"sid": 602361696169931
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 977678551870020,
+											"parameters": {
+												"unique-id": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 936230093968648,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 1)"
+											}
+										}
+									],
+									"sid": 804571323361567
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 663551623245535,
+											"parameters": {
+												"unique-id": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 360203914882191,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 2)"
+											}
+										}
+									],
+									"sid": 912470845384684
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 292635540466883,
+											"parameters": {
+												"unique-id": "7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 876934006372639,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 3)"
+											}
+										}
+									],
+									"sid": 539547071016350
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 967120189307132,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Loader\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 831839878433920
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 332523611938372,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Credits\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 336185365879414,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "typewriter-text",
+											"objectClass": "FinalText",
+											"sid": 301233645015235,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage))",
+												"duration": "15"
+											}
+										}
+									],
+									"sid": 842200911396922
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Minigame"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 878587195305378,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"PipeMinigame\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 416838296944038,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "NoEventText instances"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NoEventText",
+											"sid": 126617263476286,
+											"parameters": {
+												"unique-id": "324"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 738298666650496,
+											"disabled": true,
+											"parameters": {
+												"text": "Languages.Get(\"PipeMinigame_NoEventText_1_0\")"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 197962479002891,
+											"parameters": {
+												"text": "Languages.Get(Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 0)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "NoEventText",
+											"sid": 368026686031074,
+											"disabled": true,
+											"parameters": {
+												"text": "Function.Param(0) & \"_\" & Self.ObjectTypeName & \"_\" & str(ActualLanguage) & \"_\" & 0"
+											}
+										}
+									],
+									"sid": 213807512353829
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 871823890902744,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"StoneMinigame\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 861278700377193
+						}
+					]
+				}
+			],
+			"sid": 404774419231539
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions [Sounds]",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 662993190321526,
+							"parameters": {
+								"name": "\"PlayMusic\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 845738164267906,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 155871957296678,
+									"parameters": {
+										"index": "Function.Param(0)",
+										"comparison": 1,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 775635065640489,
+									"parameters": {
+										"index": "Function.Param(0)",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "check-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 456981353517111,
+									"parameters": {
+										"key": "\"SfxVolume\""
+									}
+								},
+								{
+									"id": "check-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 930257358138848,
+									"parameters": {
+										"key": "\"MusicVolume\""
+									}
+								}
+							],
+							"sid": 685547757229963,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 474997676982763,
+											"parameters": {
+												"variable": "MusicVolume",
+												"comparison": 3,
+												"value": "-50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 988663398678798,
+											"parameters": {
+												"tag": "\"music\""
+											}
+										}
+									],
+									"sid": 600117091428490
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 196240640394068
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 903558669792389,
+											"parameters": {
+												"tag": "\"music\""
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 428926284841151,
+											"parameters": {
+												"folder": "music",
+												"audio-file-name": "Function.Param(0)",
+												"loop": "looping",
+												"volume": "MusicVolume",
+												"tag-optional": "\"music\""
+											}
+										}
+									],
+									"sid": 413777510421065
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 432514637512617
+		}
+	],
+	"sid": 185961759186478
+}

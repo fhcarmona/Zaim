@@ -1,0 +1,119 @@
+{
+	"name": "Waterfall",
+	"plugin-id": "Sprite",
+	"sid": 619629112283827,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1167,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9462742,
+						"collisionPoly": {
+							"points": [
+								0.050556983718937444,
+								0.05462962962962963,
+								0.5,
+								0.06851851851851852,
+								0.6143958868894601,
+								0.41574074074074074,
+								0.6443873179091688,
+								0.5,
+								0.792630674778751,
+								0.9185185182977607,
+								0.06512424985669878,
+								0.8712962958271858,
+								0.004284490145672665,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1167,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3699669,
+						"collisionPoly": {
+							"points": [
+								0.050556983718937444,
+								0.05462962962962963,
+								0.5,
+								0.06944444444444445,
+								0.6135389888603257,
+								0.4166666666666667,
+								0.6443873179091688,
+								0.5,
+								0.9383033419023136,
+								0.9333333333333333,
+								0.5,
+								0.9879629629629629,
+								0.08911739502999143,
+								0.9027777777777778,
+								0.004284490145672665,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1167,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1175390,
+						"collisionPoly": {
+							"points": [
+								0.050556983718937444,
+								0.05462962962962963,
+								0.5,
+								0.06944444444444445,
+								0.6135389888603257,
+								0.4166666666666667,
+								0.6443873179091688,
+								0.5,
+								0.9383033419023136,
+								0.9333333333333333,
+								0.5,
+								0.9879629629629629,
+								0.08911739502999143,
+								0.9027777777777778,
+								0.004284490145672665,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 293833988901132,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 6.5
+			}
+		],
+		"subfolders": []
+	}
+}

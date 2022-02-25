@@ -1,0 +1,621 @@
+{
+	"name": "DialogueSystem",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Generic DialogueBox Preparation"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 172997296748153,
+					"parameters": {
+						"name": "\"DialogueCreate\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 424386216644837,
+					"parameters": {
+						"first-value": "BoxDialogue.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 471333345160154,
+					"parameters": {
+						"tag": "\"sfx\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 949833089148556,
+					"parameters": {
+						"tag": "\"steps\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 273749743854368,
+					"parameters": {
+						"object-to-create": "DialogueBox",
+						"layer": "\"UI\"",
+						"x": "365",
+						"y": "754",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "DialogueBox",
+					"sid": 145667974957395,
+					"parameters": {
+						"width": "1138",
+						"height": "282"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 228323961026686,
+					"parameters": {
+						"object-to-create": "BoxDialogue",
+						"layer": "\"UI\"",
+						"x": "DialogueBox.X + 32",
+						"y": "DialogueBox.Y + 32",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-font-face",
+					"objectClass": "BoxDialogue",
+					"sid": 438798984733494,
+					"parameters": {
+						"font-face": "\"Kidtype\"",
+						"style": "normal"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "BoxDialogue",
+					"sid": 209595050725763,
+					"parameters": {
+						"size-pt": "48"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "BoxDialogue",
+					"sid": 931816561607158,
+					"parameters": {
+						"color": "rgbEx(255, 255, 255)"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "BoxDialogue",
+					"sid": 418105307172454,
+					"parameters": {
+						"width": "DialogueBox.Width - 32",
+						"height": "DialogueBox.Height - 32"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "DialogueBox",
+					"sid": 966834767300456,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 586334127315997,
+					"parameters": {
+						"name": "\"Pause\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 233392682375654,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "There's a possible bug on Construct that don't allow to pass the parameter to the next function, so it was needed to make in 'hardcode' (duplicate)"
+				},
+				{
+					"eventType": "comment",
+					"text": "Item"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 343728522601081,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"Biocapsule\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 251745526474286
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 674839486280197,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"Biocapsule\""
+								]
+							}
+						}
+					],
+					"sid": 125457673426559
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 688242237858239,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"Bamboo\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 884221407113314
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 554303358847532,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"Bamboo\""
+								]
+							}
+						}
+					],
+					"sid": 174822355455207
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 991293660289601,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"Mineral\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 335596843642970
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 534420651715827,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"Mineral\""
+								]
+							}
+						}
+					],
+					"sid": 882333070238205
+				},
+				{
+					"eventType": "comment",
+					"text": "Minigame"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 908636489523664,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"BridgeBefore\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 143208250883725
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 767437782879983,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"BridgeBefore\""
+								]
+							}
+						}
+					],
+					"sid": 626652160104754
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 340541648677900,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"StonePuzzleIncompleted\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 379342371849784
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 876705957490776,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"StonePuzzleIncompleted\""
+								]
+							}
+						}
+					],
+					"sid": 357269313624970
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 951367905462593,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"StonePuzzleCompleted\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 821433491183342
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 174131715726360,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"StonePuzzleCompleted\""
+								]
+							}
+						}
+					],
+					"sid": 846219930511874
+				},
+				{
+					"eventType": "comment",
+					"text": "Others"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 214215742834519,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"BridgeAfter\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 408637624575237
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 513300453460160,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"BridgeAfter\""
+								]
+							}
+						}
+					],
+					"sid": 730245497255014
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 823101335112248,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"RocketBroken\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 590873848569559
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 282494782254979,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"RocketBroken\""
+								]
+							}
+						}
+					],
+					"sid": 800213528226030
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 749329289064238,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"RocketFixed\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 526018367148893
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 275286982827459,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"RocketFixed\""
+								]
+							}
+						}
+					],
+					"sid": 843878868746077
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 922544204492432,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "\"EndingDemo\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 667121670657633
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 667830468098665,
+							"parameters": {
+								"name": "\"GetLanguageText\"",
+								"parameter-n": [
+									"LayoutName",
+									"\"EndingDemo\""
+								]
+							}
+						}
+					],
+					"sid": 405949131227458
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Dialogue time on screen"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 145277627734417,
+					"parameters": {
+						"interval-seconds": "1"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "DialogueBox",
+					"sid": 788943843682482
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "DialogueBox",
+					"sid": 933604222420958,
+					"parameters": {
+						"instance-variable": "DialogueTimer",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "DialogueBox",
+					"sid": 872035529128837,
+					"parameters": {
+						"instance-variable": "DialogueTimer",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 386586819165878,
+			"disabled": true
+		},
+		{
+			"eventType": "comment",
+			"text": "Reset dialogue to default"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 900904388821947,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "DialogueBox",
+					"sid": 950910136382329,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "DialogueTimer",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "BoxDialogue",
+					"sid": 908607026694060
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "DialogueBox",
+					"sid": 568981682028208,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "DialogueBox",
+					"sid": 266648705074718,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "DialogueTimer",
+						"value": "5"
+					}
+				},
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 850298319595413,
+					"parameters": {
+						"tag": "\"DialogueBox\""
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 391384651043874,
+					"parameters": {
+						"name": "\"UnPause\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 854741929399242,
+			"isOrBlock": true
+		}
+	],
+	"sid": 197152565735497
+}

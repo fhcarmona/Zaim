@@ -1,0 +1,55 @@
+{
+	"name": "Grass",
+	"plugin-id": "Sprite",
+	"sid": 632137826619782,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 140235311449379
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1211,
+						"height": 332,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5165562,
+						"collisionPoly": {
+							"points": [
+								0.09248554362038018,
+								0.2710843211915134,
+								0.567299778061793,
+								0.2168674569532107,
+								0.7060280934923651,
+								0.5602409900671023,
+								0.03303055129299292,
+								0.6927711026496184
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 373714389394136,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

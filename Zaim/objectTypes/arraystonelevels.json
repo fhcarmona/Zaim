@@ -1,0 +1,14 @@
+{
+	"name": "ArrayStoneLevels",
+	"plugin-id": "Arr",
+	"sid": 436340037151624,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "Difficulty",
+			"type": "number",
+			"desc": "",
+			"sid": 837292289857111
+		}
+	]
+}

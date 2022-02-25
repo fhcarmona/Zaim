@@ -1,0 +1,55 @@
+{
+	"name": "BridgePuzzle",
+	"plugin-id": "Sprite",
+	"sid": 667456237057981,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 307878616146201
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1475,
+						"height": 307,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4599638,
+						"collisionPoly": {
+							"points": [
+								0.08655367502609443,
+								0,
+								0.8849717489855891,
+								0,
+								0.856045194893458,
+								0.6015200762592536,
+								0.05423729037497671,
+								0.5580890215461425
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 981978740132106,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"name": "SpritePipeCollider",
+	"plugin-id": "Sprite",
+	"sid": 847143691183990,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "IsOverlapping",
+			"type": "number",
+			"desc": "",
+			"sid": 285721890652893
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 968789526783447
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4879755,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 490811070757197,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

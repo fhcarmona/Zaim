@@ -1,0 +1,96 @@
+{
+	"name": "OptionsRectangle",
+	"plugin-id": "Sprite",
+	"sid": 809942635574031,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "option",
+			"type": "boolean",
+			"desc": "",
+			"sid": 381796775468912
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 897,
+						"height": 93,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3303571,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9899665551839465,
+								0.08602150537634409,
+								0.9988851727982163,
+								0.5,
+								0.9988851727982163,
+								0.989247311827957,
+								0.5,
+								0.989247311827957,
+								0.008918617614269788,
+								0.9032258064516129,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 897,
+						"height": 93,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2051233,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9899665551839465,
+								0.08602150537634409,
+								0.9988851727982163,
+								0.5,
+								0.9988851727982163,
+								0.989247311827957,
+								0.5,
+								0.989247311827957,
+								0.008918617614269788,
+								0.9032258064516129,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 534558148294657,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

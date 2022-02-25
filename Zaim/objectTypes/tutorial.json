@@ -1,0 +1,89 @@
+{
+	"name": "Tutorial",
+	"plugin-id": "Sprite",
+	"sid": 292021315947308,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 763,
+						"height": 790,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8451047,
+						"collisionPoly": {
+							"points": [
+								0.04980340760157274,
+								0.04810126582278481,
+								0.5,
+								0,
+								0.9488859764089121,
+								0.04810126582278481,
+								0.9986893840104849,
+								0.5,
+								0.9488859764089121,
+								0.950632911392405,
+								0.5,
+								0.9987341772151899,
+								0.04980340760157274,
+								0.950632911392405,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 763,
+						"height": 790,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3694699,
+						"collisionPoly": {
+							"points": [
+								0.04980340760157274,
+								0.04810126582278481,
+								0.5,
+								0,
+								0.9488859764089121,
+								0.04810126582278481,
+								0.9986893840104849,
+								0.5,
+								0.9488859764089121,
+								0.950632911392405,
+								0.5,
+								0.9987341772151899,
+								0.04980340760157274,
+								0.950632911392405,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 895643278400861,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

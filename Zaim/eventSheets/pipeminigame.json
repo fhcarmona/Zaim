@@ -1,0 +1,1647 @@
+{
+	"name": "PipeMinigame",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "variable",
+			"name": "Level",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 780291478101902
+		},
+		{
+			"eventType": "variable",
+			"name": "IsPuzzleCompleted",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 557185150076681
+		},
+		{
+			"eventType": "variable",
+			"name": "GridSize",
+			"type": "number",
+			"initialValue": "64",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 755810480229530
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 148800369560343
+				}
+			],
+			"actions": [],
+			"sid": 127227131445223,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Define the level of pipe minigame"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 161650311917447,
+							"parameters": {
+								"x": "0",
+								"y": "0",
+								"value": "6"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 646692807666931,
+							"parameters": {
+								"x": "0",
+								"y": "1",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 959340662992824,
+							"parameters": {
+								"x": "0",
+								"y": "2",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 708545279819502,
+							"parameters": {
+								"x": "0",
+								"y": "3",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 201823507938189,
+							"parameters": {
+								"x": "0",
+								"y": "4",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 698257299978395,
+							"parameters": {
+								"x": "0",
+								"y": "5",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 789388903867363,
+							"parameters": {
+								"x": "0",
+								"y": "6",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 220777481566771,
+							"parameters": {
+								"x": "0",
+								"y": "7",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 345563769059071,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"value": "8"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 646018914171111,
+							"parameters": {
+								"x": "1",
+								"y": "1",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 995841595870822,
+							"parameters": {
+								"x": "1",
+								"y": "2",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 652025171772744,
+							"parameters": {
+								"x": "1",
+								"y": "3",
+								"value": "4"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 611657564351132,
+							"parameters": {
+								"x": "1",
+								"y": "4",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 449535201387274,
+							"parameters": {
+								"x": "1",
+								"y": "5",
+								"value": "4"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 681538842321488,
+							"parameters": {
+								"x": "1",
+								"y": "6",
+								"value": "5"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 194887098979383,
+							"parameters": {
+								"x": "1",
+								"y": "7",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 456535687653528,
+							"parameters": {
+								"x": "2",
+								"y": "0",
+								"value": "6"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 477494803568781,
+							"parameters": {
+								"x": "2",
+								"y": "1",
+								"value": "6"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 109270079412991,
+							"parameters": {
+								"x": "2",
+								"y": "2",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 495862666754601,
+							"parameters": {
+								"x": "2",
+								"y": "3",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 710624518830409,
+							"parameters": {
+								"x": "2",
+								"y": "4",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 721967073289422,
+							"parameters": {
+								"x": "2",
+								"y": "5",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 658300907717929,
+							"parameters": {
+								"x": "2",
+								"y": "6",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayPipeLevels",
+							"sid": 162093950086170,
+							"parameters": {
+								"x": "2",
+								"y": "7",
+								"value": "6"
+							}
+						}
+					],
+					"sid": 600816996505141
+				},
+				{
+					"eventType": "comment",
+					"text": "On start of layout define the camera zoom and spawn the begin and the exit of pipe puzzle"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "SpritePipeCollider",
+							"sid": 252167999155851
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 834385805223990,
+							"parameters": {
+								"variable": "Level",
+								"value": "round(random(0, 2))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 826412648189128,
+							"parameters": {
+								"variable": "IsPuzzleCompleted",
+								"value": "0"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "BkPipeMinigame",
+							"sid": 590317512874869,
+							"parameters": {
+								"object": "SpritePipeBeginEnd",
+								"layer": "\"UI\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeBeginEnd",
+							"sid": 267181795941643,
+							"parameters": {
+								"x": "1152",
+								"y": "GridSize * ArrayPipeLevels.At(Level, 6)"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipeBeginEnd",
+							"sid": 470517373023924,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "\"UI\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 308556795286432,
+							"parameters": {
+								"x": "SpritePipeBeginEnd.BBoxLeft",
+								"y": "SpritePipeBeginEnd.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 169657043233882,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipeBeginEnd",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "BkPipeMinigame",
+							"sid": 912237558069687,
+							"parameters": {
+								"object": "SpritePipeBeginEnd",
+								"layer": "\"UI\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeBeginEnd",
+							"sid": 212937824602912,
+							"parameters": {
+								"x": "448",
+								"y": "GridSize * ArrayPipeLevels.At(Level, 7)"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipeBeginEnd",
+							"sid": 150351366017856,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "\"UI\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 173176306912533,
+							"parameters": {
+								"x": "SpritePipeBeginEnd.BBoxRight",
+								"y": "SpritePipeBeginEnd.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 999397074276738,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipeBeginEnd",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "SpritePipes",
+							"sid": 125606550093656,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 793173338219393,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 388723429066756,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"PipeMinigame\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 971255577295677,
+									"parameters": {
+										"name": "\"PlayMusic\"",
+										"parameter-n": [
+											"\"PipeMinigameTheme\""
+										]
+									}
+								}
+							],
+							"sid": 110482878828149
+						},
+						{
+							"eventType": "comment",
+							"text": "Set the param to beggining the position"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "ArrayPipeLevels",
+									"sid": 366830658586340,
+									"parameters": {
+										"axes": "xy"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 942334434321549,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 0,
+										"value": "ArrayPipeLevels.CurX"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 134852782303997,
+									"parameters": {
+										"first-value": "ArrayPipeLevels.CurY",
+										"comparison": 2,
+										"second-value": "6"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 665873302676677,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 471951354616486,
+											"parameters": {
+												"count": "ArrayPipeLevels.CurValue"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "BkPipeMinigame",
+											"sid": 723814707326159,
+											"parameters": {
+												"object": "SpritePipes",
+												"layer": "\"UI\"",
+												"image-point": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "SpritePipes",
+											"sid": 618947039569990,
+											"parameters": {
+												"frame-number": "ArrayPipeLevels.CurY"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "SpritePipes",
+											"sid": 456219316619701,
+											"parameters": {
+												"x": "512 + (GridSize * round(random(0, 9)))",
+												"y": "128 + (GridSize * round(random(0, 9)))"
+											}
+										}
+									],
+									"sid": 509703666451944
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "DragDropStartX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 270797682958154
+		},
+		{
+			"eventType": "variable",
+			"name": "DragDropStartY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 653499072837113
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "SpritePipes",
+					"sid": 294653844712629,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 915996781401705,
+					"parameters": {
+						"variable": "DragDropStartX",
+						"value": "SpritePipes.X"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 339163318653288,
+					"parameters": {
+						"variable": "DragDropStartY",
+						"value": "SpritePipes.Y"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "SpritePipes",
+					"sid": 617106046683456
+				}
+			],
+			"sid": 460581012282642
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the pipe position if overlapping"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "SpritePipes",
+					"sid": 332177852772940,
+					"parameters": {
+						"object": "SpritePipes"
+					}
+				},
+				{
+					"id": "pick-topbottom",
+					"objectClass": "SpritePipes",
+					"sid": 262116573278598,
+					"parameters": {
+						"which": "top"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 225358553415010,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 552494943101952,
+							"parameters": {
+								"variable": "DragDropStartX",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 775905853930887,
+							"parameters": {
+								"variable": "DragDropStartY",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipes",
+							"sid": 493692057564828,
+							"parameters": {
+								"x": "512 + (GridSize * round(random(0, 9)))",
+								"y": "128 + (GridSize * round(random(0, 9)))"
+							}
+						}
+					],
+					"sid": 199693660249206
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 292710296064106
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipes",
+							"sid": 698610575181869,
+							"parameters": {
+								"x": "DragDropStartX",
+								"y": "DragDropStartY"
+							}
+						}
+					],
+					"sid": 128675244240075
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "When the player try to drop the pipe out of delimited layout, the pipe return to a original position"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "SpritePipes",
+					"sid": 399977316530193,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-collisions-enabled",
+					"objectClass": "SpritePipes",
+					"sid": 649550507714045,
+					"disabled": true,
+					"parameters": {
+						"collisions": "enabled"
+					}
+				}
+			],
+			"sid": 207430441642446,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 889192267119823,
+							"parameters": {
+								"first-value": "SpritePipes.X",
+								"comparison": 2,
+								"second-value": "512"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 488882875408722,
+							"parameters": {
+								"first-value": "SpritePipes.Y",
+								"comparison": 2,
+								"second-value": "128"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 363516129153047,
+							"parameters": {
+								"first-value": "SpritePipes.X",
+								"comparison": 4,
+								"second-value": "1088"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 243871797116810,
+							"parameters": {
+								"first-value": "SpritePipes.Y",
+								"comparison": 4,
+								"second-value": "704"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipes",
+							"sid": 524614599220979,
+							"parameters": {
+								"x": "DragDropStartX",
+								"y": "DragDropStartY"
+							}
+						}
+					],
+					"sid": 144309102732211,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 544238073414056
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipes",
+							"sid": 521489653977836,
+							"parameters": {
+								"x": "GridSize * floor(Mouse.X / GridSize)",
+								"y": "GridSize * floor(Mouse.Y / GridSize)"
+							}
+						}
+					],
+					"sid": 802400337695694
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Preview the pipe drop location"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-dragging",
+					"objectClass": "SpritePipes",
+					"sid": 871514084268895,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "SpritePipes",
+					"sid": 788650786075877,
+					"parameters": {
+						"x": "GridSize * floor(Mouse.X / GridSize)",
+						"y": "GridSize * floor(Mouse.Y / GridSize)"
+					}
+				}
+			],
+			"sid": 969894066564041
+		},
+		{
+			"eventType": "comment",
+			"text": "Create the pipe collider checker for each pipe created"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-frame-changed",
+					"objectClass": "SpritePipes",
+					"sid": 805506984631932
+				}
+			],
+			"actions": [],
+			"sid": 671017626520611,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpritePipes",
+							"sid": 200005829203911,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 185520269982111,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 698092976714432,
+							"parameters": {
+								"x": "SpritePipes.BBoxRight",
+								"y": "SpritePipes.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 479634896712975,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 141044267641531,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 136470761098381,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft",
+								"y": "SpritePipes.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 131084897030410,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						}
+					],
+					"sid": 350497004995785
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpritePipes",
+							"sid": 280781213450506,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 874097972260852,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 446145294056883,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft + (GridSize / 2)",
+								"y": "SpritePipes.BBoxTop"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 641393889913282,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 999151721398321,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 243182203686064,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft + (GridSize / 2)",
+								"y": "SpritePipes.BBoxBottom"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 198147751027840,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						}
+					],
+					"sid": 293738755298013
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpritePipes",
+							"sid": 518309529037541,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 118717195753560,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 759035698756921,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft",
+								"y": "SpritePipes.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 199008965585718,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 666401803581133,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 909003220423829,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft + (GridSize / 2)",
+								"y": "SpritePipes.BBoxBottom"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 577216965649670,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						}
+					],
+					"sid": 402279459069334
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpritePipes",
+							"sid": 492217819890222,
+							"parameters": {
+								"comparison": 0,
+								"number": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 846723879426600,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 648029532927501,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft",
+								"y": "SpritePipes.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 685135160715309,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 475921669723277,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 324005783818214,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft + (GridSize / 2)",
+								"y": "SpritePipes.BBoxTop"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 120469989479020,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						}
+					],
+					"sid": 254663342556593
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpritePipes",
+							"sid": 195082872897180,
+							"parameters": {
+								"comparison": 0,
+								"number": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 581634361509175,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 719378144705331,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft + (GridSize / 2)",
+								"y": "SpritePipes.BBoxTop"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 555903589359349,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 467510900151249,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 828593677373439,
+							"parameters": {
+								"x": "SpritePipes.BBoxRight",
+								"y": "SpritePipes.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 149024485848319,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						}
+					],
+					"sid": 225683698435021
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpritePipes",
+							"sid": 269376026661428,
+							"parameters": {
+								"comparison": 0,
+								"number": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 462643969850423,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 610309178590543,
+							"parameters": {
+								"x": "SpritePipes.BBoxRight",
+								"y": "SpritePipes.BBoxTop + (GridSize / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 428693886076917,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SpritePipes",
+							"sid": 371685236660068,
+							"parameters": {
+								"object": "SpritePipeCollider",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SpritePipeCollider",
+							"sid": 950079209119907,
+							"parameters": {
+								"x": "SpritePipes.BBoxLeft + (GridSize / 2)",
+								"y": "SpritePipes.BBoxBottom"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "SpritePipeCollider",
+							"sid": 192556861691705,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "SpritePipes",
+								"mode": "position-only"
+							}
+						}
+					],
+					"sid": 788866683953677
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the color and the variable to true when one collider is touching another"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "SpritePipeCollider",
+					"sid": 183745372173302,
+					"parameters": {
+						"object": "SpritePipeCollider"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-parameter",
+					"objectClass": "SpritePipeCollider",
+					"sid": 635485523868086,
+					"parameters": {
+						"effect": "\"AdjustHSL\"",
+						"parameter-index": "0",
+						"value": "30"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "SpritePipeCollider",
+					"sid": 469291707900064,
+					"parameters": {
+						"instance-variable": "IsOverlapping",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 101996262904055
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "SpritePipeCollider",
+					"sid": 235278695265791,
+					"parameters": {
+						"object": "SpritePipeCollider"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-parameter",
+					"objectClass": "SpritePipeCollider",
+					"sid": 815773661445268,
+					"parameters": {
+						"effect": "\"AdjustHSL\"",
+						"parameter-index": "0",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "SpritePipeCollider",
+					"sid": 741506516147361,
+					"parameters": {
+						"instance-variable": "IsOverlapping",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 784293828627356
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 410703112790225,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "check"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 686896605199336,
+					"parameters": {
+						"variable": "IsPuzzleCompleted",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 451275515897428,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 989308810960873,
+							"parameters": {
+								"object": "SpritePipeCollider"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 889989648189765,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 783056118866584,
+									"parameters": {
+										"first-value": "SpritePipeCollider.IsOverlapping",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 944657425975102,
+									"parameters": {
+										"variable": "IsPuzzleCompleted",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 630360029104957
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 800415016175135,
+							"parameters": {
+								"object": "SpritePipeBeginEnd"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 760747725326702,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 975243939118762,
+									"parameters": {
+										"variable": "IsPuzzleCompleted",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "SpritePipeBeginEnd",
+									"sid": 837835458056218,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "SpritePipes",
+									"sid": 131372586533030,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 703150800655446,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 533881947045371,
+									"parameters": {
+										"instance-variable": "LastXPosition",
+										"value": "1133"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 508237756023922,
+									"parameters": {
+										"instance-variable": "LastYPosition",
+										"value": "555"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 456810953366898,
+									"parameters": {
+										"variable": "isPipeMinigameCompleted",
+										"value": "true"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 409334971946394,
+									"parameters": {
+										"layout": "E1M1"
+									}
+								}
+							],
+							"sid": 233382462254520
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 136274153462981,
+									"parameters": {
+										"variable": "IsPuzzleCompleted",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "SpritePipeBeginEnd",
+									"sid": 294825644468933,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "SpritePipes",
+									"sid": 995668710251895,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 597113081019013
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 147898785173620,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Arrow"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 447833033923975,
+					"parameters": {
+						"instance-variable": "LastXPosition",
+						"value": "1133"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 860874003473728,
+					"parameters": {
+						"instance-variable": "LastYPosition",
+						"value": "555"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 681046470141528,
+					"parameters": {
+						"layout": "E1M1"
+					}
+				}
+			],
+			"sid": 830383692748270
+		}
+	],
+	"sid": 755257484467382
+}

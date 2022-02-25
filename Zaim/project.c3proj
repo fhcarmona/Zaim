@@ -1,0 +1,665 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 27602,
+	"name": "Alegorias de Zaim",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Function",
+			"name": "Function",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "sliderbar",
+			"name": "Slider bar",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "video",
+			"name": "Video",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "2m2oqhlgof90t",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"BkPipeMinigame",
+							"BkMenu",
+							"BkE1M1",
+							"BkStoneMinigame",
+							"BkCredits"
+						],
+						"subfolders": [],
+						"name": "Backgrounds"
+					},
+					{
+						"items": [],
+						"subfolders": [
+							{
+								"items": [
+									"Gongo",
+									"Gaita",
+									"MawPlant"
+								],
+								"subfolders": [],
+								"name": "Enemies"
+							},
+							{
+								"items": [
+									"SpriteEnemyAlien",
+									"Player"
+								],
+								"subfolders": [],
+								"name": "Friendly"
+							}
+						],
+						"name": "Characters"
+					},
+					{
+						"items": [
+							"SpriteRadio",
+							"Arrow",
+							"DropHeart"
+						],
+						"subfolders": [
+							{
+								"items": [
+									"SpritePipeBeginEnd",
+									"SpritePipes",
+									"SpritePipeCollider"
+								],
+								"subfolders": [],
+								"name": "BridgeMinigame"
+							},
+							{
+								"items": [
+									"Triangle",
+									"Square",
+									"Hexagon",
+									"Circle"
+								],
+								"subfolders": [],
+								"name": "StoneMinigame"
+							}
+						],
+						"name": "Mechanics"
+					},
+					{
+						"items": [
+							"HealthBar",
+							"GameOver",
+							"Load",
+							"MenuIngame",
+							"InventoryItems",
+							"InventoryBackground",
+							"Tutorial"
+						],
+						"subfolders": [],
+						"name": "UI"
+					},
+					{
+						"items": [
+							"Zone",
+							"SlashDamageCollider",
+							"OptionsRectangle",
+							"CheckBox",
+							"Flags",
+							"Blockable",
+							"LayoutTransfer",
+							"SpawnEnemyFollow"
+						],
+						"subfolders": [],
+						"name": "Other"
+					},
+					{
+						"items": [
+							"MountainFloor",
+							"BridgePuzzle",
+							"BridgeLeft",
+							"BridgeRight",
+							"Sky",
+							"Waterfall",
+							"Fish",
+							"Water",
+							"FishUnderwater",
+							"EButton",
+							"DialogueBox"
+						],
+						"subfolders": [],
+						"name": "Miscellaneous"
+					},
+					{
+						"items": [
+							"GreenTree",
+							"Grass",
+							"Ship",
+							"RockBrown",
+							"RockGrey",
+							"Monolit"
+						],
+						"subfolders": [],
+						"name": "Solids"
+					}
+				],
+				"name": "Art"
+			},
+			{
+				"items": [
+					"Audio",
+					"Browser",
+					"Function",
+					"Keyboard",
+					"LocalStorage",
+					"Mouse",
+					"SliderSoundEffects",
+					"SliderMusic",
+					"Video"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"TextDebug",
+							"BoxDialogue",
+							"check",
+							"MenuContinue",
+							"MenuNewGame",
+							"MenuOptions",
+							"MenuExit",
+							"NoEventText",
+							"OptionBack",
+							"Languages",
+							"FinalText"
+						],
+						"subfolders": [],
+						"name": "Text"
+					},
+					{
+						"items": [
+							"ArrayInventory",
+							"ArrayPipeLevels",
+							"ArrayStoneLevels"
+						],
+						"subfolders": [],
+						"name": "Array"
+					}
+				],
+				"name": "Other"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"E1M1"
+				],
+				"subfolders": [],
+				"name": "Levels"
+			},
+			{
+				"items": [
+					"MainMenu",
+					"Options",
+					"Loader",
+					"Credits"
+				],
+				"subfolders": [],
+				"name": "Menus"
+			},
+			{
+				"items": [
+					"PipeMinigame",
+					"StoneMinigame"
+				],
+				"subfolders": [],
+				"name": "Minigames"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"E1M1",
+					"MainMenu",
+					"Options"
+				],
+				"subfolders": [],
+				"name": "Layouts"
+			},
+			{
+				"items": [
+					"BattleSystem",
+					"CameraEvent",
+					"Inventory",
+					"Movements",
+					"Loader",
+					"Functions",
+					"IngameMenu",
+					"DialogueSystem",
+					"Credits"
+				],
+				"subfolders": [],
+				"name": "Global"
+			},
+			{
+				"items": [
+					"PipeMinigame",
+					"StoneMinigame"
+				],
+				"subfolders": [],
+				"name": "Minigame"
+			}
+		]
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "dagger-1.ogg",
+					"type": "audio/ogg; codecs=vorbis",
+					"sid": 849763496047366
+				},
+				{
+					"name": "slash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 374383279999439
+				},
+				{
+					"name": "steps.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 398446415424873
+				},
+				{
+					"name": "note_stone_minigame_1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 719445810278767
+				},
+				{
+					"name": "note_stone_minigame_2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 725118245823389
+				},
+				{
+					"name": "note_stone_minigame_3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 895869371964910
+				},
+				{
+					"name": "note_stone_minigame_4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 221010839132625
+				},
+				{
+					"name": "item.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 289678348289779
+				},
+				{
+					"name": "player-damage.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 958471025387024
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "PipeMinigameTheme.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 851389494763302
+				},
+				{
+					"name": "MenuTheme.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 160437596208122
+				},
+				{
+					"name": "E1M1Theme.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 939891771648858
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [
+				{
+					"name": "intro-peralta-games.mp4",
+					"type": "video/mp4",
+					"sid": 402130774456286
+				},
+				{
+					"name": "intro-peralta-games.ogv",
+					"type": "video/ogg",
+					"sid": 910125905685226
+				}
+			],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Kidtype.ttf",
+					"type": "application/font-sfnt",
+					"sid": 105490176851118
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 382401235189649,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 966637710742742,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-114.png",
+					"type": "image/png",
+					"sid": 780859122390065,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 200691742652575,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 968441176930971,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 172192202309830,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "0.4.2.0",
+		"author": "DANIEL CLAPER CUNDARI TEIXEIRA DE BARROS;FABIO HENRIQUE CARMONA;GABRIEL DA ROCHA;GABRIEL OLIVEIRA PEREIRA DOS SANTOS;LISSIANE TRAJANO PEREIRA",
+		"authorEmail": "",
+		"authorWebsite": "http://",
+		"appId": "com.peraltagames.zaim",
+		"pixelRounding": false,
+		"useLoaderLayout": true,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "2d",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": false,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https"
+	},
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
+	"firstLayout": "Loader"
+}

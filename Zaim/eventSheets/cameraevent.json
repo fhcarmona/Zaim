@@ -1,0 +1,109 @@
+{
+	"name": "CameraEvent",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Zoom the camera to scale 6 (turn 1920x1080 to 320x180) "
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 288042855972010
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Zone",
+					"sid": 630959082653829,
+					"parameters": {
+						"object": "Player"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 452031079563158,
+					"parameters": {
+						"scale": "6"
+					}
+				}
+			],
+			"sid": 891851837739035,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Calculation to camera maintain inside the zone"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 973868636045077,
+							"parameters": {
+								"x": "lerp(scrollx, (clamp(Player.X, zone.X + 160, zone.X + zone.Width - 160)), 0.1 * 60 * dt)",
+								"y": "lerp(scrolly, (clamp(Player.Y, zone.Y + 090, zone.Y + zone.Height - 090)), 0.1 * 60 * dt)"
+							}
+						}
+					],
+					"sid": 743390894899555
+				},
+				{
+					"eventType": "comment",
+					"text": "Delay between zones"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 346069887943295,
+							"parameters": {
+								"first-value": "Player.ActualZone",
+								"comparison": 1,
+								"second-value": "Zone.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 810685891515268,
+							"parameters": {
+								"name": "\"Pause\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 898859597181067,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 581192174888336,
+							"parameters": {
+								"name": "\"UnPause\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 312402819335467
+				}
+			]
+		}
+	],
+	"sid": 698025093856459
+}

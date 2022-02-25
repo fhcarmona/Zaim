@@ -1,0 +1,145 @@
+{
+	"name": "BkPipeMinigame",
+	"plugin-id": "Sprite",
+	"sid": 373029492580149,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1920,
+						"height": 1080,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8332583,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9994791666666667,
+								0,
+								0.9994791666666667,
+								0.5,
+								0.9994791666666667,
+								0.9990740740740741,
+								0.5,
+								0.9990740740740741,
+								0,
+								0.9990740740740741,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1920,
+						"height": 1079,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6775688,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9994791666666667,
+								0,
+								0.9994791666666667,
+								0.5,
+								0.9994791666666667,
+								0.9990732159406858,
+								0.5,
+								0.9990732159406858,
+								0,
+								0.9990732159406858,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1920,
+						"height": 1080,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9099855,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9994791666666667,
+								0,
+								0.9994791666666667,
+								0.5,
+								0.9994791666666667,
+								0.9990740740740741,
+								0.5,
+								0.9990740740740741,
+								0,
+								0.9990740740740741,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1920,
+						"height": 1080,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6965576,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.9994791666666667,
+								0,
+								0.9994791666666667,
+								0.9990740740740741,
+								0,
+								0.9990740740740741
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 536064271273409,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

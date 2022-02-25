@@ -1,0 +1,941 @@
+{
+	"name": "Movements",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movimentacao",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Running Action"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 677417299133930,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 361709613485457,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 909818196100513
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 264222244624889,
+							"parameters": {
+								"key": 83
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 709847164462531,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 363414496247665
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 843879980339541,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 818055515145913,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 381830943853020
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 913341060338274,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 346679110589814,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 408461293779893
+				}
+			],
+			"sid": 173332228274320
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animações",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Idle Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 606116921054142,
+							"parameters": {
+								"key": 68
+							},
+							"isInverted": true
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 106381195906522,
+							"parameters": {
+								"key": 83
+							},
+							"isInverted": true
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 520036647760557,
+							"parameters": {
+								"key": 87
+							},
+							"isInverted": true
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 611411337854521,
+							"parameters": {
+								"key": 65
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 947300550802852,
+							"parameters": {
+								"tag": "\"steps\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 413955221737610,
+							"parameters": {
+								"instance-variable": "Walk",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Player",
+							"sid": 836550243860580,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"speed": "0"
+							}
+						}
+					],
+					"sid": 698001372546836
+				},
+				{
+					"eventType": "comment",
+					"text": "Running Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 633526480980344
+						}
+					],
+					"actions": [],
+					"sid": 643792614043122,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 541378008791167,
+									"parameters": {
+										"tag": "\"steps\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 130333533963984,
+									"parameters": {
+										"audio-file": "steps",
+										"loop": "looping",
+										"volume": "SFXVolume",
+										"tag-optional": "\"steps\""
+									}
+								}
+							],
+							"sid": 986443555568249
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 144905420102285,
+									"parameters": {
+										"key": 87
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 765434235509391,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "270"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player",
+									"sid": 900737433244525,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 559382064078685
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 479093117576090,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 317625964714712,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "90"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player",
+									"sid": 190724075178935,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 764892533051774
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 448491561907801,
+									"parameters": {
+										"key": 65
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 239033455955131,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "180"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player",
+									"sid": 668310371001195,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 672803645463124
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 590402495020717,
+									"parameters": {
+										"key": 68
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 646651530275191,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player",
+									"sid": 316614664349554,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 679412793956801
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Armed"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 277431078949714,
+							"parameters": {
+								"instance-variable": "Walk"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 209762032458681,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 773587571287079,
+							"parameters": {
+								"animation": "\"Idle_Unarmed_\" & Player.VisionAngle",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 687047210133928
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 406728591982729,
+							"parameters": {
+								"instance-variable": "Walk"
+							}
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 320722317855103,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 281561851306859,
+							"parameters": {
+								"animation": "\"Walk_Unarmed_\" & Player.VisionAngle",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 531496038388635
+				},
+				{
+					"eventType": "comment",
+					"text": "Unarmed"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 210243795808565,
+							"parameters": {
+								"instance-variable": "Walk"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 469023170031498,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 953391516290256,
+							"parameters": {
+								"animation": "\"Idle_Armed_\" & Player.VisionAngle",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 523020839557331
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 564901157395237,
+							"parameters": {
+								"instance-variable": "Walk"
+							}
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 687591264964656,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 242175342681466,
+							"parameters": {
+								"animation": "\"Walk_Armed_\" & Player.VisionAngle",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 113983122839433
+				},
+				{
+					"eventType": "comment",
+					"text": "Gongo Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 810338561735335,
+							"parameters": {
+								"object": "Gongo"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 166138810343011,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "Gongo",
+									"sid": 100998072893142,
+									"behaviorType": "MoveTo",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gongo",
+									"sid": 202033562990923,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "90"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Gongo",
+									"sid": 365032442008543,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 579809714664572
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 271121064852104
+								}
+							],
+							"actions": [],
+							"sid": 167348620433622,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Gongo",
+											"sid": 336263675949781,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "Gongo.MoveTo.TargetX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Gongo",
+											"sid": 380044059559555,
+											"parameters": {
+												"instance-variable": "Walk",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Gongo",
+											"sid": 747784858863711,
+											"parameters": {
+												"instance-variable": "VisionAngle",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 814411422634078
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Gongo",
+											"sid": 605554586389113,
+											"parameters": {
+												"comparison": 4,
+												"x-co-ordinate": "Gongo.MoveTo.TargetX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Gongo",
+											"sid": 126703505112086,
+											"parameters": {
+												"instance-variable": "Walk",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Gongo",
+											"sid": 595339274471120,
+											"parameters": {
+												"instance-variable": "VisionAngle",
+												"value": "180"
+											}
+										}
+									],
+									"sid": 914276934698869
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Gongo",
+									"sid": 740832859908227,
+									"parameters": {
+										"instance-variable": "Walk"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Gongo",
+									"sid": 282671436585102,
+									"parameters": {
+										"animation": "\"Walk_\" & Gongo.VisionAngle",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 951586816989706
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Gongo",
+									"sid": 490047550165018,
+									"parameters": {
+										"instance-variable": "Walk"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Gongo",
+									"sid": 181851198827134,
+									"parameters": {
+										"animation": "\"Idle_\" & Gongo.VisionAngle",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 954913684076920
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Gaita Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 364819634111763,
+							"parameters": {
+								"object": "Gaita"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 132196015469931,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Gaita",
+									"sid": 684518044027284,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Gaita.MoveTo.TargetX"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Gaita",
+									"sid": 722918055228302,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gaita",
+									"sid": 118696935163759,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 665614882929895
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "Gaita",
+									"sid": 264952885379087,
+									"parameters": {
+										"comparison": 2,
+										"y-co-ordinate": "Gaita.MoveTo.TargetY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Gaita",
+									"sid": 539224153337179,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gaita",
+									"sid": 452334706389724,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "90"
+									}
+								}
+							],
+							"sid": 465490876576761
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Gaita",
+									"sid": 890048034401755,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Gaita.MoveTo.TargetX"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Gaita",
+									"sid": 724877327764879,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gaita",
+									"sid": 384427283154830,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "180"
+									}
+								}
+							],
+							"sid": 814463513546185
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "Gaita",
+									"sid": 491130515745921,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "Gaita.MoveTo.TargetY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Gaita",
+									"sid": 416603082521647,
+									"parameters": {
+										"instance-variable": "Walk",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Gaita",
+									"sid": 553525306807236,
+									"parameters": {
+										"instance-variable": "VisionAngle",
+										"value": "270"
+									}
+								}
+							],
+							"sid": 234538434698486
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Gaita",
+									"sid": 835757876633833,
+									"parameters": {
+										"instance-variable": "Walk"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Gaita",
+									"sid": 589081899392178,
+									"parameters": {
+										"animation": "\"Walk_\" & Gaita.VisionAngle",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 241294036692908
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Gaita",
+									"sid": 311660296479608,
+									"parameters": {
+										"instance-variable": "Walk"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Gaita",
+									"sid": 382654185883674,
+									"parameters": {
+										"animation": "\"Idle_\" & Gaita.VisionAngle",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 315219098481427
+						}
+					]
+				}
+			],
+			"sid": 219106989344430
+		}
+	],
+	"sid": 621713804371209
+}

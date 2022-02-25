@@ -1,0 +1,726 @@
+{
+	"name": "Options",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 518235546828452
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 983884675188053,
+					"parameters": {
+						"key": "\"SfxVolume\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 434329280535672,
+					"parameters": {
+						"key": "\"MusicVolume\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 188990263519848,
+					"parameters": {
+						"key": "\"Language\""
+					}
+				}
+			],
+			"sid": 822946007672711,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 891886542195544,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Options\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 989280369164364,
+							"parameters": {
+								"name": "\"PlayMusic\"",
+								"parameter-n": [
+									"\"MenuTheme\""
+								]
+							}
+						}
+					],
+					"sid": 960698594067384
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the sprite when it on fullscreen or not"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-fullscreen",
+					"objectClass": "Browser",
+					"sid": 839369795055132
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "CheckBox",
+					"sid": 422593129310661,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 576774969752517
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 864337018201809
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "CheckBox",
+					"sid": 847654984103662,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 646383774792317
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the volume to sfx tag"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-changed",
+					"objectClass": "SliderSoundEffects",
+					"sid": 525766622933487
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 529013233590826,
+					"parameters": {
+						"variable": "SFXVolume",
+						"value": "SliderSoundEffects.Value"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 712231108198836,
+					"parameters": {
+						"tag": "\"sfx\"",
+						"db": "SFXVolume"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 293065449257312,
+					"parameters": {
+						"audio-file": "dagger-1",
+						"loop": "not-looping",
+						"volume": "SFXVolume",
+						"tag-optional": "\"sfx\""
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 133043570141343,
+					"parameters": {
+						"key": "\"SfxVolume\"",
+						"value": "SFXVolume"
+					}
+				}
+			],
+			"sid": 284654814968902,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 656756585537781,
+							"parameters": {
+								"variable": "SFXVolume",
+								"comparison": 0,
+								"value": "-50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 450550099068936,
+							"parameters": {
+								"tag": "\"sfx\"",
+								"state": "pause"
+							}
+						},
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 272356584984623,
+							"parameters": {
+								"tag": "\"steps\"",
+								"state": "pause"
+							}
+						}
+					],
+					"sid": 965119836054795
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 843882970956071
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 627583914581445,
+							"parameters": {
+								"tag": "\"sfx\"",
+								"state": "resume"
+							}
+						},
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 610141864509670,
+							"parameters": {
+								"tag": "\"steps\"",
+								"state": "resume"
+							}
+						}
+					],
+					"sid": 702411516947239
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the volume to music tag"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-changed",
+					"objectClass": "SliderMusic",
+					"sid": 547485906393490
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 963689835023131,
+					"parameters": {
+						"variable": "MusicVolume",
+						"value": "SliderMusic.Value"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 135600462454390,
+					"parameters": {
+						"tag": "\"music\"",
+						"db": "MusicVolume"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 374689737304511,
+					"parameters": {
+						"key": "\"MusicVolume\"",
+						"value": "MusicVolume"
+					}
+				}
+			],
+			"sid": 997381702628632,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 419875851986455,
+							"parameters": {
+								"variable": "MusicVolume",
+								"comparison": 0,
+								"value": "-50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 702029220693892,
+							"parameters": {
+								"tag": "\"music\"",
+								"state": "pause"
+							}
+						}
+					],
+					"sid": 658280938963863
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 712331263850480
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 664838093722091,
+							"parameters": {
+								"tag": "\"music\"",
+								"state": "resume"
+							}
+						}
+					],
+					"sid": 670815355373283
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Record the data from changed options"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 832885433788897,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "OptionBack"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 450667529857257,
+					"parameters": {
+						"variable": "SFXVolume",
+						"value": "SliderSoundEffects.Value"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 274378370174925,
+					"parameters": {
+						"variable": "MusicVolume",
+						"value": "SliderMusic.Value"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 375752233585917,
+					"parameters": {
+						"key": "\"SfxVolume\"",
+						"value": "SFXVolume"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 190237670519062,
+					"parameters": {
+						"key": "\"MusicVolume\"",
+						"value": "MusicVolume"
+					}
+				}
+			],
+			"sid": 807791752041292,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 363474874246938,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Options\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 374559056600251,
+							"parameters": {
+								"layout": "MainMenu"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 448907740114994,
+							"parameters": {
+								"key": "\"Language\"",
+								"value": "Flags.AnimationFrame"
+							}
+						}
+					],
+					"sid": 804932462790677
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 555648762952577,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"E1M1\""
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "MenuIngame",
+							"sid": 317977624844030
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 356201187546029,
+							"parameters": {
+								"layout": "MainMenu"
+							}
+						}
+					],
+					"sid": 945501023601179
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Toggle fullscreen"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 170747263880817,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "CheckBox"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 514302041280732,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 198467422979607
+						}
+					],
+					"actions": [
+						{
+							"id": "cancel-fullscreen",
+							"objectClass": "Browser",
+							"sid": 396395360257695
+						}
+					],
+					"sid": 979144671827048
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 609157209060480
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 275924763452152,
+							"parameters": {
+								"mode": "stretch-scale-inner",
+								"navigation-ui": "auto"
+							}
+						}
+					],
+					"sid": 720797472879822
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 240357536681032
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the language"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 381729338246928,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Flags"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Flags",
+					"sid": 409709998142566,
+					"parameters": {
+						"frame-number": "Self.AnimationFrame = 0 ? 1 : 0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 837940846636943,
+					"parameters": {
+						"variable": "ActualLanguage",
+						"value": "Flags.AnimationFrame"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 703808920960147,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"LayoutName"
+						]
+					}
+				}
+			],
+			"sid": 283694154442631
+		},
+		{
+			"eventType": "comment",
+			"text": "LocalStorage"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 484936177308592,
+					"parameters": {
+						"key": "\"SfxVolume\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 728440722089744,
+					"parameters": {
+						"variable": "SFXVolume",
+						"value": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"id": "set-value",
+					"objectClass": "SliderSoundEffects",
+					"sid": 720809454361748,
+					"parameters": {
+						"value": "SFXVolume"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 590538427884073,
+					"parameters": {
+						"tag": "\"sfx\"",
+						"db": "SFXVolume"
+					}
+				}
+			],
+			"sid": 105344824135368
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 861486642934131,
+					"parameters": {
+						"key": "\"MusicVolume\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 781720238990896,
+					"parameters": {
+						"variable": "MusicVolume",
+						"value": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"id": "set-value",
+					"objectClass": "SliderMusic",
+					"sid": 618789295356293,
+					"parameters": {
+						"value": "MusicVolume"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 566606969275590,
+					"parameters": {
+						"tag": "\"music\"",
+						"db": "MusicVolume"
+					}
+				}
+			],
+			"sid": 122031902261401
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 436044405992148,
+					"parameters": {
+						"key": "\"Language\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Flags",
+					"sid": 986484954424339,
+					"parameters": {
+						"frame-number": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 438896512172518
+		},
+		{
+			"eventType": "comment",
+			"text": "Change the color of the options, when mouse is over"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 786301604945605
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 196501811606947,
+					"parameters": {
+						"name": "\"OptionsMouseOver\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 884544506375540
+		}
+	],
+	"sid": 750971035504596
+}

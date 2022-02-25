@@ -1,0 +1,281 @@
+{
+	"name": "MainMenu",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 539225234902148
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 518453698192241,
+							"parameters": {
+								"name": "\"DefaultLocalStorage\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 291840964918744,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 491941958680787,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainMenu\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 294578223680273,
+									"parameters": {
+										"name": "\"PlayMusic\"",
+										"parameter-n": [
+											"\"MenuTheme\""
+										]
+									}
+								}
+							],
+							"sid": 107349108662331
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 737215926380231,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "MenuContinue"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 519056133007997,
+							"parameters": {
+								"slot": "\"AlegoriaZaim-Savedgame\""
+							}
+						}
+					],
+					"sid": 866173899213473
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 373695337553400,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "MenuNewGame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 195297115451748
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 572480592080758
+						},
+						{
+							"id": "clear",
+							"objectClass": "ArrayInventory",
+							"sid": 858172164430232,
+							"parameters": {
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 936883396876468,
+							"parameters": {
+								"instance-variable": "ActualZone",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 931319069855501,
+							"parameters": {
+								"instance-variable": "LastXPosition",
+								"value": "165"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 968522133973112,
+							"parameters": {
+								"instance-variable": "LastYPosition",
+								"value": "100"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 254509023972685,
+							"parameters": {
+								"instance-variable": "VisionAngle",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 798553348157478,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "3"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 980629232622157,
+							"parameters": {
+								"layout": "E1M1"
+							}
+						}
+					],
+					"sid": 786797987327622
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 450512722153288,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "MenuOptions"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 242722751802429,
+							"parameters": {
+								"layout": "Options"
+							}
+						}
+					],
+					"sid": 521821690449357
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 967512352719036,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "MenuExit"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 575467755954774
+						}
+					],
+					"sid": 264801825006115
+				}
+			],
+			"sid": 501003505074719
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 352293108377011
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 680099764084229,
+					"parameters": {
+						"name": "\"OptionsMouseOver\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 779677440695952
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-load-complete",
+					"objectClass": "System",
+					"sid": 696217145564079
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 584266254104552,
+					"parameters": {
+						"variable": "ActualLanguage",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 658541959413515
+		}
+	],
+	"sid": 497590973155415
+}

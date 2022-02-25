@@ -1,0 +1,49 @@
+{
+	"name": "GameOver",
+	"plugin-id": "Sprite",
+	"sid": 512769433105861,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 466,
+						"height": 49,
+						"originX": 0.5,
+						"originY": 0.510204,
+						"originalSource": "D:\\Projects\\Fatec\\Primeiro Semestre\\alegorias-de-zaim\\Assets\\Objects\\UI\\US-Gameover.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5080413,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 547,
+						"height": 49,
+						"originX": 0.500914,
+						"originY": 0.510204,
+						"originalSource": "D:\\Projects\\Fatec\\Primeiro Semestre\\alegorias-de-zaim\\Assets\\Objects\\UI\\BR-Gameover.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2854620,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 137413551607114,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

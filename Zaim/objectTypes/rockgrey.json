@@ -1,0 +1,61 @@
+{
+	"name": "RockGrey",
+	"plugin-id": "Sprite",
+	"sid": 999147574534614,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 184103347376679
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 232,
+						"height": 99,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1620196,
+						"collisionPoly": {
+							"points": [
+								0.3405172445907677,
+								0,
+								0.9209770119866765,
+								0.2828282832798331,
+								1,
+								0.6077441093496201,
+								0.6925287325920042,
+								0.9831649865265246,
+								0.04597700472878298,
+								0.9730639726625948,
+								0,
+								0.777777775670544,
+								0.09339080598933258,
+								0.3181818154725161
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 854098535549116,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

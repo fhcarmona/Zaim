@@ -1,0 +1,1661 @@
+{
+	"name": "StoneMinigame",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Inventory"
+		},
+		{
+			"eventType": "variable",
+			"name": "isEnable",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 801337733109710
+		},
+		{
+			"eventType": "variable",
+			"name": "NextSequenceAI",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 478246934689549
+		},
+		{
+			"eventType": "variable",
+			"name": "NextSequencePlayer",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 643399700436691
+		},
+		{
+			"eventType": "variable",
+			"name": "RandomStone",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 564660277880184
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 197342170571125
+				}
+			],
+			"actions": [
+				{
+					"id": "clear",
+					"objectClass": "ArrayStoneLevels",
+					"sid": 854021288208419,
+					"parameters": {
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "ArrayStoneLevels",
+					"sid": 322622951428228,
+					"parameters": {
+						"instance-variable": "Difficulty",
+						"value": "round(random(3,6))"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 331238914047990,
+					"parameters": {
+						"variable": "isEnable",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 870038885694362,
+					"parameters": {
+						"variable": "NextSequenceAI",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 561035413968043,
+					"parameters": {
+						"variable": "NextSequencePlayer",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 181247659450228,
+					"parameters": {
+						"variable": "RandomStone",
+						"value": "round(random(1,4))"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Circle",
+					"sid": 386036179619653,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Hexagon",
+					"sid": 103187407399372,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Square",
+					"sid": 657468743170470,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Triangle",
+					"sid": 948761107202235,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				}
+			],
+			"sid": 563134502132505,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 279417324027330,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"StoneMinigame\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 106776998620160,
+							"parameters": {
+								"name": "\"PlayMusic\"",
+								"parameter-n": [
+									"\"PipeMinigameTheme\""
+								]
+							}
+						}
+					],
+					"sid": 372704756711083
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "StoneMinigame",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 795186999310410
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 230137725913591,
+							"parameters": {
+								"text": "\"Current(\" & NextSequenceAI & \"): \""
+							}
+						}
+					],
+					"sid": 771719066257208,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "ArrayStoneLevels",
+									"sid": 760850392694423,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "append-text",
+									"objectClass": "TextDebug",
+									"sid": 697722580687105,
+									"parameters": {
+										"text": "ArrayStoneLevels.CurValue  & \" \""
+									}
+								}
+							],
+							"sid": 759238306875799
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 697268849957802,
+							"parameters": {
+								"variable": "isStoneMinigameCompleted"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 341963889543388,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Animation"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 923458833023958,
+									"parameters": {
+										"tag": "\"Sequence\""
+									}
+								}
+							],
+							"sid": 325124816284361,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 485110182648541,
+											"parameters": {
+												"first-value": "RandomStone",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Circle",
+											"sid": 583853309214359,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Circle",
+											"sid": 402889747767070,
+											"parameters": {
+												"color": "rgbEx(200,200,50)"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 280330995374911,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Circle",
+											"sid": 670857349193248,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Circle",
+											"sid": 885501119471119,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										}
+									],
+									"sid": 508808667882652
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 321248387622704,
+											"parameters": {
+												"first-value": "RandomStone",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Hexagon",
+											"sid": 652579936762417,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Hexagon",
+											"sid": 474077779065792,
+											"parameters": {
+												"color": "rgbEx(50,50,200)"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 250556377385057,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Hexagon",
+											"sid": 304733808393364,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Hexagon",
+											"sid": 661614211684457,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										}
+									],
+									"sid": 406561148482485
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 867955173058857,
+											"parameters": {
+												"first-value": "RandomStone",
+												"comparison": 0,
+												"second-value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Square",
+											"sid": 607498890886867,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Square",
+											"sid": 155182050147944,
+											"parameters": {
+												"color": "rgbEx(50,200,50)"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 330361216173329,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Square",
+											"sid": 162974142789327,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Square",
+											"sid": 169450962670951,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										}
+									],
+									"sid": 434414007913926
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 908348369646637,
+											"parameters": {
+												"first-value": "RandomStone",
+												"comparison": 0,
+												"second-value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Triangle",
+											"sid": 179888668308387,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Triangle",
+											"sid": 916414733890963,
+											"parameters": {
+												"color": "rgbEx(200,50,50)"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 919777675016009,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Triangle",
+											"sid": 626223296199145,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Triangle",
+											"sid": 856150857744828,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										}
+									],
+									"sid": 614321672256940
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Enable player to click"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 604125253825477,
+									"parameters": {
+										"variable": "isEnable"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 143964113711353,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 658657187102442,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Circle"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "ArrayStoneLevels",
+											"sid": 273462658212864,
+											"parameters": {
+												"x": "NextSequencePlayer",
+												"value": "ArrayStoneLevels.At(NextSequencePlayer) - 1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 651122767284123,
+											"parameters": {
+												"variable": "NextSequencePlayer",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Circle",
+											"sid": 635785129012497,
+											"parameters": {
+												"color": "rgbEx(0, 75, 0)"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 290103525610276,
+											"parameters": {
+												"audio-file": "note_stone_minigame_1",
+												"loop": "not-looping",
+												"volume": "SFXVolume",
+												"tag-optional": "\"sfx\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 716431024032206,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Circle",
+											"sid": 222068679712487,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										}
+									],
+									"sid": 671849915634036,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 892374191295016,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Hexagon"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "ArrayStoneLevels",
+											"sid": 299421986155899,
+											"parameters": {
+												"x": "NextSequencePlayer",
+												"value": "ArrayStoneLevels.At(NextSequencePlayer) - 2"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 255942722640198,
+											"parameters": {
+												"variable": "NextSequencePlayer",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Hexagon",
+											"sid": 134299343545092,
+											"parameters": {
+												"color": "rgbEx(0, 75, 0)"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 122330445534808,
+											"parameters": {
+												"audio-file": "note_stone_minigame_2",
+												"loop": "not-looping",
+												"volume": "SFXVolume",
+												"tag-optional": "\"sfx\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 693383147224097,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Hexagon",
+											"sid": 354475232652544,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										}
+									],
+									"sid": 480588471378032
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 335639234234823,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Square"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "ArrayStoneLevels",
+											"sid": 206226110846944,
+											"parameters": {
+												"x": "NextSequencePlayer",
+												"value": "ArrayStoneLevels.At(NextSequencePlayer) - 3"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 301721701646984,
+											"parameters": {
+												"variable": "NextSequencePlayer",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Square",
+											"sid": 509365885845886,
+											"parameters": {
+												"color": "rgbEx(0, 75, 0)"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 344052008593181,
+											"parameters": {
+												"audio-file": "note_stone_minigame_3",
+												"loop": "not-looping",
+												"volume": "SFXVolume",
+												"tag-optional": "\"sfx\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 932984574473304,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Square",
+											"sid": 699496267306846,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										}
+									],
+									"sid": 970453709291946
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 688693882759050,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Triangle"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "ArrayStoneLevels",
+											"sid": 126180482159897,
+											"parameters": {
+												"x": "NextSequencePlayer",
+												"value": "ArrayStoneLevels.At(NextSequencePlayer) - 4"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 319931224294537,
+											"parameters": {
+												"variable": "NextSequencePlayer",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Triangle",
+											"sid": 536220416706625,
+											"parameters": {
+												"color": "rgbEx(0, 75, 0)"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 606817244776745,
+											"parameters": {
+												"audio-file": "note_stone_minigame_4",
+												"loop": "not-looping",
+												"volume": "SFXVolume",
+												"tag-optional": "\"sfx\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 429162683105409,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Triangle",
+											"sid": 424807083007215,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										}
+									],
+									"sid": 411888054370641
+								},
+								{
+									"eventType": "comment",
+									"text": "AI has made the sequence and the player has made the sequence"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 622681484802335,
+											"parameters": {
+												"variable": "NextSequenceAI",
+												"comparison": 0,
+												"value": "NextSequencePlayer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 855788156612424,
+											"parameters": {
+												"variable": "isEnable",
+												"value": "false"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 444275356300223,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "set-collisions-enabled",
+											"objectClass": "Arrow",
+											"sid": 384407363045130,
+											"parameters": {
+												"collisions": "disabled"
+											}
+										}
+									],
+									"sid": 599005399337410,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Fail"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 894051212482246,
+													"parameters": {
+														"value": "1"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 448451176924513,
+													"parameters": {
+														"value": "2"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 273407389301646,
+													"parameters": {
+														"value": "3"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 596444815203831,
+													"parameters": {
+														"value": "4"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 999891311092564,
+													"parameters": {
+														"value": "-1"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 374329585351354,
+													"parameters": {
+														"value": "-2"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 343196257117720,
+													"parameters": {
+														"value": "-3"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 139824303540957,
+													"parameters": {
+														"value": "-4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Circle",
+													"sid": 251221211026944,
+													"parameters": {
+														"color": "rgbEx(200,0,0)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Hexagon",
+													"sid": 873899172602436,
+													"parameters": {
+														"color": "rgbEx(200,0,0)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Square",
+													"sid": 999702214407444,
+													"parameters": {
+														"color": "rgbEx(200,0,0)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Triangle",
+													"sid": 801148558082433,
+													"parameters": {
+														"color": "rgbEx(200,0,0)"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 516646151264473,
+													"parameters": {
+														"seconds": "1"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Circle",
+													"sid": 548742349477691,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Hexagon",
+													"sid": 256220698165223,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Square",
+													"sid": 562726051268829,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Triangle",
+													"sid": 358330515486995,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												}
+											],
+											"sid": 603660270542231,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Reset to a new AI sequence"
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "clear",
+															"objectClass": "ArrayStoneLevels",
+															"sid": 794776013735213,
+															"parameters": {
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "ArrayStoneLevels",
+															"sid": 134285050401872,
+															"parameters": {
+																"instance-variable": "Difficulty",
+																"value": "round(random(3,6))"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 305974184485157,
+															"parameters": {
+																"variable": "isEnable",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 122238898756694,
+															"parameters": {
+																"variable": "NextSequenceAI",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 248369387666109,
+															"parameters": {
+																"variable": "NextSequencePlayer",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 602814041034209,
+															"parameters": {
+																"variable": "RandomStone",
+																"value": "round(random(1,4))"
+															}
+														},
+														{
+															"id": "set-collisions-enabled",
+															"objectClass": "Arrow",
+															"sid": 848533014992648,
+															"parameters": {
+																"collisions": "enabled"
+															}
+														}
+													],
+													"sid": 540637605815779
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Success"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 758806625439102
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Circle",
+													"sid": 891574250228610,
+													"parameters": {
+														"color": "rgbEx(0,200,0)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Hexagon",
+													"sid": 801809791993009,
+													"parameters": {
+														"color": "rgbEx(0,200,0)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Square",
+													"sid": 907853472723372,
+													"parameters": {
+														"color": "rgbEx(0,200,0)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Triangle",
+													"sid": 983134825396699,
+													"parameters": {
+														"color": "rgbEx(0,200,0)"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 383436484305512,
+													"parameters": {
+														"seconds": "1"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Circle",
+													"sid": 689295711336235,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Hexagon",
+													"sid": 944072128869289,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Square",
+													"sid": 660998730076733,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Triangle",
+													"sid": 758566156660924,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 687001206527283,
+													"parameters": {
+														"variable": "isStoneMinigameCompleted",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-collisions-enabled",
+													"objectClass": "Arrow",
+													"sid": 448069632672616,
+													"parameters": {
+														"collisions": "enabled"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 638995010334906,
+													"parameters": {
+														"instance-variable": "LastXPosition",
+														"value": "1437"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 471446132897456,
+													"parameters": {
+														"instance-variable": "LastYPosition",
+														"value": "336"
+													}
+												},
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 319824774644982,
+													"parameters": {
+														"layout": "E1M1"
+													}
+												}
+											],
+											"sid": 419433258451259
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Generate diffulty quantity of numbers without repeat the last one"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 381667743151371,
+									"parameters": {
+										"interval-seconds": "1.0"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 736984834723396,
+									"parameters": {
+										"variable": "isEnable"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 983615024752482,
+									"parameters": {
+										"variable": "NextSequenceAI",
+										"comparison": 2,
+										"value": "ArrayStoneLevels.Difficulty"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 155503308762612,
+									"parameters": {
+										"variable": "NextSequencePlayer",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 134942113751867,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 821928952551320,
+											"parameters": {
+												"first-value": "RandomStone",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 750741210400727,
+											"parameters": {
+												"variable": "RandomStone",
+												"value": "round(random(2,4))"
+											}
+										},
+										{
+											"id": "set-at-x",
+											"objectClass": "ArrayStoneLevels",
+											"sid": 286222709730869,
+											"parameters": {
+												"x": "NextSequenceAI",
+												"value": "RandomStone"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 967831964245600,
+											"parameters": {
+												"audio-file": "note_stone_minigame_1",
+												"loop": "not-looping",
+												"volume": "SFXVolume",
+												"tag-optional": "\"sfx\""
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 309247686532066,
+											"parameters": {
+												"variable": "NextSequenceAI",
+												"value": "1"
+											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 782194396396125,
+											"parameters": {
+												"tag": "\"Sequence\""
+											}
+										}
+									],
+									"sid": 250841174927812
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 628852692868439
+										}
+									],
+									"actions": [],
+									"sid": 349565207453142,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 456276850357408,
+													"parameters": {
+														"first-value": "RandomStone",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 945647295720931,
+													"parameters": {
+														"variable": "RandomStone",
+														"value": "round(random(2, 4)) = 2 ? 1 : round(random(3, 4))"
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "ArrayStoneLevels",
+													"sid": 958419755203078,
+													"parameters": {
+														"x": "NextSequenceAI",
+														"value": "RandomStone"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 372562993122665,
+													"parameters": {
+														"audio-file": "note_stone_minigame_2",
+														"loop": "not-looping",
+														"volume": "SFXVolume",
+														"tag-optional": "\"sfx\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 776308569364696,
+													"parameters": {
+														"variable": "NextSequenceAI",
+														"value": "1"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 925208585257030,
+													"parameters": {
+														"tag": "\"Sequence\""
+													}
+												}
+											],
+											"sid": 259665120887516
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 927185378914813
+												}
+											],
+											"actions": [],
+											"sid": 367021501330401,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 371391143954743,
+															"parameters": {
+																"first-value": "RandomStone",
+																"comparison": 0,
+																"second-value": "3"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 607779336037777,
+															"parameters": {
+																"variable": "RandomStone",
+																"value": "round(random(1, 3)) = 3 ? 4 : round(random(1, 2))"
+															}
+														},
+														{
+															"id": "set-at-x",
+															"objectClass": "ArrayStoneLevels",
+															"sid": 491572686165240,
+															"parameters": {
+																"x": "NextSequenceAI",
+																"value": "RandomStone"
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 303595353991827,
+															"parameters": {
+																"audio-file": "note_stone_minigame_3",
+																"loop": "not-looping",
+																"volume": "SFXVolume",
+																"tag-optional": "\"sfx\""
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 951316151012372,
+															"parameters": {
+																"variable": "NextSequenceAI",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 450799307114030,
+															"parameters": {
+																"tag": "\"Sequence\""
+															}
+														}
+													],
+													"sid": 905752894113592
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 687739428121996
+														}
+													],
+													"actions": [],
+													"sid": 910129153302430,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 858639793589010,
+																	"parameters": {
+																		"first-value": "RandomStone",
+																		"comparison": 0,
+																		"second-value": "4"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 475670440605201,
+																	"parameters": {
+																		"variable": "RandomStone",
+																		"value": "round(random(1, 3))"
+																	}
+																},
+																{
+																	"id": "set-at-x",
+																	"objectClass": "ArrayStoneLevels",
+																	"sid": 872635813825806,
+																	"parameters": {
+																		"x": "NextSequenceAI",
+																		"value": "RandomStone"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 630228636823130,
+																	"parameters": {
+																		"audio-file": "note_stone_minigame_4",
+																		"loop": "not-looping",
+																		"volume": "SFXVolume",
+																		"tag-optional": "\"sfx\""
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 214437139478686,
+																	"parameters": {
+																		"variable": "NextSequenceAI",
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "signal",
+																	"objectClass": "System",
+																	"sid": 647594495382516,
+																	"parameters": {
+																		"tag": "\"Sequence\""
+																	}
+																}
+															],
+															"sid": 502587315490689
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "AI array is completed"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 480867078629492,
+											"parameters": {
+												"variable": "NextSequenceAI",
+												"comparison": 0,
+												"value": "ArrayStoneLevels.Difficulty"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 365962029278197,
+											"parameters": {
+												"variable": "isEnable",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 853434251354959
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Exit Puzzle"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 220282388874089,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Arrow"
+							}
+						},
+						{
+							"id": "collisions-enabled",
+							"objectClass": "Arrow",
+							"sid": 199242816354262
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 174978339401850,
+							"parameters": {
+								"instance-variable": "LastXPosition",
+								"value": "1437"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 694403574119387,
+							"parameters": {
+								"instance-variable": "LastYPosition",
+								"value": "336"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 933790023935040,
+							"parameters": {
+								"layout": "E1M1"
+							}
+						}
+					],
+					"sid": 766055490626733
+				}
+			],
+			"sid": 943299197593858
+		}
+	],
+	"sid": 269864719456361
+}

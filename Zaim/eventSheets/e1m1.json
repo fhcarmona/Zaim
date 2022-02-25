@@ -1,0 +1,944 @@
+{
+	"name": "E1M1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "isPipeMinigameCompleted",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 149157894357160
+		},
+		{
+			"eventType": "variable",
+			"name": "isStoneMinigameCompleted",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 851927223429013
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "CameraEvent"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "BattleSystem"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Movements"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Inventory"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "IngameMenu"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "DialogueSystem"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 502272741458986
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "BoxDialogue",
+					"sid": 116031714755322
+				},
+				{
+					"id": "destroy",
+					"objectClass": "DialogueBox",
+					"sid": 731083752293048
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Gongo",
+					"sid": 424940565472848
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 142295171507906,
+					"parameters": {
+						"x": "Player.LastXPosition",
+						"y": "Player.LastYPosition"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "InventoryItems",
+					"sid": 976451090421602
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 328118214583426,
+					"parameters": {
+						"slot": "\"AlegoriaZaim-Savedgame\""
+					}
+				}
+			],
+			"sid": 185840358983077,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 563406201048246,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"E1M1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 496016857635876,
+							"parameters": {
+								"name": "\"PlayMusic\"",
+								"parameter-n": [
+									"\"E1M1Theme\""
+								]
+							}
+						}
+					],
+					"sid": 550413172863846
+				},
+				{
+					"eventType": "comment",
+					"text": "If the bridge minigame was completed, then the bridge will appear to the player"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 166935540045220,
+							"parameters": {
+								"variable": "isPipeMinigameCompleted"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "BridgePuzzle",
+							"sid": 655928204316348,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BridgePuzzle",
+							"sid": 847309369383088,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 596875478791721
+				},
+				{
+					"eventType": "comment",
+					"text": "Create the biocapsule"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 349672927298191,
+							"parameters": {
+								"x": "0",
+								"y": "0",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 184862750468027,
+							"parameters": {
+								"object-to-create": "InventoryItems",
+								"layer": "3",
+								"x": "395",
+								"y": "415",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "InventoryItems",
+							"sid": 171595601493128,
+							"parameters": {
+								"width": "10",
+								"height": "10"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "InventoryItems",
+							"sid": 823622796491935,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 348072041050436
+				},
+				{
+					"eventType": "comment",
+					"text": "Create the bamboo"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 259141264296085,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 981702578432720,
+							"parameters": {
+								"object-to-create": "InventoryItems",
+								"layer": "3",
+								"x": "Player.X",
+								"y": "Player.Y",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "InventoryItems",
+							"sid": 424933581746550,
+							"parameters": {
+								"width": "12",
+								"height": "12"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "InventoryItems",
+							"sid": 943638738963273,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 837624969010069
+				},
+				{
+					"eventType": "comment",
+					"text": "Create the gem below the player, to trigger the dialogue box"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 473606385353769,
+							"parameters": {
+								"variable": "isStoneMinigameCompleted"
+							}
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 941604312385478,
+							"parameters": {
+								"x": "2",
+								"y": "0",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 219942518006087,
+							"parameters": {
+								"object-to-create": "InventoryItems",
+								"layer": "3",
+								"x": "Player.X",
+								"y": "Player.Y",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "InventoryItems",
+							"sid": 521602444242148,
+							"parameters": {
+								"frame-number": "2"
+							}
+						}
+					],
+					"sid": 156519508861263
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "E1M1 - Level Actions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Show if something is interactable"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 344863936530023,
+							"parameters": {
+								"object": "LayoutTransfer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "EButton",
+							"sid": 853206739309285,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 286283595886749
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 926007715499736,
+							"parameters": {
+								"object": "LayoutTransfer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "EButton",
+							"sid": 189065289398681,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 686674630903844
+				},
+				{
+					"eventType": "comment",
+					"text": "Every time the player press 'E' button"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 932984408449610,
+							"parameters": {
+								"key": 69
+							}
+						}
+					],
+					"actions": [],
+					"sid": 947337652894064,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 375186163490474,
+									"parameters": {
+										"object": "LayoutTransfer"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 728035806367043,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Bridge Instance"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 926641677579239,
+											"parameters": {
+												"first-value": "LayoutTransfer.UID",
+												"comparison": 0,
+												"second-value": "319"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 711429665862979,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Player is on the right side of the bridge and thr bridge is not visible"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 849827114562685,
+													"parameters": {
+														"variable": "isPipeMinigameCompleted"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 761752323695348,
+													"parameters": {
+														"name": "\"DialogueCreate\"",
+														"parameter-n": [
+															"\"BridgeBefore\""
+														]
+													}
+												},
+												{
+													"id": "wait-for-signal",
+													"objectClass": "System",
+													"sid": 867654718453541,
+													"parameters": {
+														"tag": "\"DialogueBox\""
+													}
+												},
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 364318470444560,
+													"parameters": {
+														"layout": "PipeMinigame"
+													}
+												}
+											],
+											"sid": 215490499416798
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 816513918302720
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 973594714774438,
+													"parameters": {
+														"name": "\"DialogueCreate\"",
+														"parameter-n": [
+															"\"BridgeAfter\""
+														]
+													}
+												},
+												{
+													"id": "wait-for-signal",
+													"objectClass": "System",
+													"sid": 225821312534843,
+													"parameters": {
+														"tag": "\"DialogueBox\""
+													}
+												}
+											],
+											"sid": 391759366514342
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "End Demo Instance"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 603224445644473,
+											"parameters": {
+												"first-value": "LayoutTransfer.UID",
+												"comparison": 0,
+												"second-value": "318"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 811991041738871,
+											"parameters": {
+												"name": "\"DialogueCreate\"",
+												"parameter-n": [
+													"\"EndingDemo\""
+												]
+											}
+										},
+										{
+											"id": "wait-for-signal",
+											"objectClass": "System",
+											"sid": 883501245673361,
+											"parameters": {
+												"tag": "\"DialogueBox\""
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 612879620754877,
+											"parameters": {
+												"layout": "Credits"
+											}
+										}
+									],
+									"sid": 502554415652084
+								},
+								{
+									"eventType": "comment",
+									"text": "Puzzle Stone Instance"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 296379758028450,
+											"parameters": {
+												"first-value": "LayoutTransfer.UID",
+												"comparison": 0,
+												"second-value": "323"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 303910710392096,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 811048870452664,
+													"parameters": {
+														"variable": "isStoneMinigameCompleted"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 568586281105742,
+													"parameters": {
+														"name": "\"DialogueCreate\"",
+														"parameter-n": [
+															"\"StonePuzzleIncompleted\""
+														]
+													}
+												},
+												{
+													"id": "wait-for-signal",
+													"objectClass": "System",
+													"sid": 867548492367503,
+													"parameters": {
+														"tag": "\"DialogueBox\""
+													}
+												},
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 745048964495969,
+													"parameters": {
+														"layout": "StoneMinigame"
+													}
+												}
+											],
+											"sid": 438011974037413
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 218642920579943
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 210713173001075,
+													"parameters": {
+														"name": "\"DialogueCreate\"",
+														"parameter-n": [
+															"\"StonePuzzleCompleted\""
+														]
+													}
+												},
+												{
+													"id": "wait-for-signal",
+													"objectClass": "System",
+													"sid": 690227603478961,
+													"parameters": {
+														"tag": "\"DialogueBox\""
+													}
+												}
+											],
+											"sid": 772139804984412
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Ship instance"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 895277249280656,
+											"parameters": {
+												"first-value": "LayoutTransfer.UID",
+												"comparison": 0,
+												"second-value": "330"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 655520846104431,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Verify if the player has the biocapsule (0,0), prism (2,0) and fuel (3,0) to fix the ship"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "ArrayInventory",
+													"sid": 616666217702724,
+													"parameters": {
+														"x": "0",
+														"y": "0",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-at-xy",
+													"objectClass": "ArrayInventory",
+													"sid": 610343155810688,
+													"parameters": {
+														"x": "2",
+														"y": "0",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 857215244798895,
+													"parameters": {
+														"name": "\"DialogueCreate\"",
+														"parameter-n": [
+															"\"RocketBroken\""
+														]
+													}
+												},
+												{
+													"id": "wait-for-signal",
+													"objectClass": "System",
+													"sid": 699598642152053,
+													"parameters": {
+														"tag": "\"DialogueBox\""
+													}
+												}
+											],
+											"sid": 971294860473070,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 576711009360243
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 830116659852062,
+													"parameters": {
+														"name": "\"DialogueCreate\"",
+														"parameter-n": [
+															"\"RocketFixed\""
+														]
+													}
+												},
+												{
+													"id": "wait-for-signal",
+													"objectClass": "System",
+													"sid": 908557504513490,
+													"parameters": {
+														"tag": "\"DialogueBox\""
+													}
+												}
+											],
+											"sid": 797761450588339
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 555222208647633
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "River",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Fish Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 300145741346943,
+							"parameters": {
+								"interval-seconds": "random(2, 10)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 305141439527912,
+							"parameters": {
+								"object-to-create": "Fish",
+								"layer": "\"Above\"",
+								"x": "random(845, 1080)",
+								"y": "random(500, 520)",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 337962104382773
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Fish",
+							"sid": 175792557343003
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 566327916701238,
+							"parameters": {
+								"object-to-create": "FishUnderwater",
+								"layer": "\"Above\"",
+								"x": "Fish.BBoxRight",
+								"y": "Fish.BBoxBottom",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Fish",
+							"sid": 283038170298907
+						}
+					],
+					"sid": 278124858832403
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 649909451817949,
+							"parameters": {
+								"interval-seconds": "random(2, 5)"
+							}
+						},
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 688873870925535,
+							"parameters": {
+								"object": "Water"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-animation",
+							"objectClass": "Water",
+							"sid": 253019672137552,
+							"parameters": {
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 874320853742362
+				}
+			],
+			"sid": 800993748220506
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "Player",
+					"sid": 813971109438024
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "SlashDamageCollider",
+					"sid": 416284393441462,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Player",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "EButton",
+					"sid": 975642853457493,
+					"parameters": {
+						"x": "Player.X + 1",
+						"y": "Player.Y - EButton.Height - 2"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "EButton",
+					"sid": 994307053839723,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Player",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 771293174140456
+		}
+	],
+	"sid": 411414974804743
+}

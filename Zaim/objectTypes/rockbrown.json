@@ -1,0 +1,63 @@
+{
+	"name": "RockBrown",
+	"plugin-id": "Sprite",
+	"sid": 152266483616726,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 424483798142821
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 596,
+						"height": 384,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2179570,
+						"collisionPoly": {
+							"points": [
+								0.16778523948301924,
+								0.30902778622004506,
+								0.34228186122656434,
+								0.02430555621955406,
+								0.6912751593512442,
+								0.09201389140259758,
+								0.9798657712620372,
+								0.5460069457012985,
+								0.8182326572267284,
+								0.7417534719969384,
+								0.4328858905473939,
+								0.9930555553658418,
+								0.0749440736357487,
+								0.8142361060362668,
+								0.03187919550177368,
+								0.46180555451213073
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 769820005903301,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

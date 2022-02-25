@@ -1,0 +1,53 @@
+{
+	"name": "BridgeRight",
+	"plugin-id": "Sprite",
+	"sid": 178600870966214,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 673148058143989
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1013,
+						"height": 538,
+						"originX": 0.5,
+						"originY": 0.29275092936802977,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1941423,
+						"collisionPoly": {
+							"points": [
+								0.04244817435917947,
+								0.5037174860507141,
+								0.9605133261785331,
+								0.5594795686660207,
+								0.35932873189449344,
+								0.9591078058328321
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 669710446471884,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

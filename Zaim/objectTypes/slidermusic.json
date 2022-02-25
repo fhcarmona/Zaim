@@ -1,0 +1,14 @@
+{
+	"name": "SliderMusic",
+	"plugin-id": "sliderbar",
+	"sid": 221421892153798,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 126038094563764
+		}
+	]
+}

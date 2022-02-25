@@ -1,0 +1,1570 @@
+{
+	"name": "BattleSystem",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemies Battle AI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Enemy move based on player location"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-position",
+							"objectClass": "Gongo",
+							"sid": 965842632853452,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 448142455644523,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Gongo",
+									"sid": 890642087310648,
+									"parameters": {
+										"comparison": 1,
+										"x-co-ordinate": "Player.X "
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Gongo",
+									"sid": 829330653054127,
+									"parameters": {
+										"comparison": 1,
+										"y-co-ordinate": "Player.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-object",
+									"objectClass": "Gongo",
+									"sid": 894020075469287,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Player",
+										"image-point": "0",
+										"mode": "direct"
+									}
+								}
+							],
+							"sid": 113042943666118
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 916407751949197
+						},
+						{
+							"id": "compare-x",
+							"objectClass": "Gongo",
+							"sid": 994427987493143,
+							"parameters": {
+								"comparison": 1,
+								"x-co-ordinate": "Gongo.InitialX"
+							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Gongo",
+							"sid": 127029218211854,
+							"parameters": {
+								"comparison": 1,
+								"y-co-ordinate": "Gongo.InitialY"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Gongo",
+							"sid": 435034986707783,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Gongo.InitialX",
+								"y": "Gongo.InitialY",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 420058859539530
+				},
+				{
+					"eventType": "comment",
+					"text": "Enemy move based on patrol"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 957366857591762
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Gaita",
+							"sid": 113413194004913,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Gaita.TargetX",
+								"y": "Gaita.TargetY",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 220571244146317
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Gaita",
+							"sid": 895796936028793,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [],
+					"sid": 383191591022165,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Gaita",
+									"sid": 425922733373821,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "Gaita.InitialX"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Gaita",
+									"sid": 344386040226125,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "Gaita.InitialY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-position",
+									"objectClass": "Gaita",
+									"sid": 571337657128286,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Gaita.TargetX",
+										"y": "Gaita.TargetY",
+										"mode": "direct"
+									}
+								}
+							],
+							"sid": 602421996723931
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 277377489407734
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-position",
+									"objectClass": "Gaita",
+									"sid": 476369010106561,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Gaita.InitialX",
+										"y": "Gaita.InitialY",
+										"mode": "direct"
+									}
+								}
+							],
+							"sid": 370486070235487
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Enemy don't move (Slow the player)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MawPlant",
+							"sid": 469459830084134,
+							"parameters": {
+								"object": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "MawPlant",
+							"sid": 761470051286865,
+							"parameters": {
+								"animation": "\"MawPlant_Attack\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 362983750191837,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-speed",
+									"objectClass": "Player",
+									"sid": 756165866258708,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"comparison": 4,
+										"speed": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "Player",
+									"sid": 938293873126154,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"speed": "10"
+									}
+								}
+							],
+							"sid": 899193059522770
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "MawPlant",
+							"sid": 664986621631720,
+							"parameters": {
+								"animation": "\"MawPlant_Attack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "MawPlant",
+							"sid": 121999223826730,
+							"parameters": {
+								"animation": "\"MawPlant_Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 517330887714086
+				},
+				{
+					"eventType": "comment",
+					"text": "Enemy damage player"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-flashing",
+							"objectClass": "Player",
+							"sid": 810494925522805,
+							"behaviorType": "Flash",
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 572222389336071,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Gongo",
+									"sid": 419441956378757,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 901233674349972,
+									"parameters": {
+										"name": "\"DamagePlayer\"",
+										"parameter-n": [
+											"1"
+										]
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Gongo",
+									"sid": 746085570604959,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"enabled": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 803813755441820,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Gongo",
+									"sid": 747188531195525,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"enabled": true
+									}
+								}
+							],
+							"sid": 884936910643388
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Gaita",
+									"sid": 994450363568634,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 691792219373637,
+									"parameters": {
+										"name": "\"DamagePlayer\"",
+										"parameter-n": [
+											"1"
+										]
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Gaita",
+									"sid": 892396016988901,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"enabled": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 828200198570578,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Gaita",
+									"sid": 439132414623939,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"enabled": true
+									}
+								}
+							],
+							"sid": 272053170228201
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "MawPlant",
+									"sid": 841687286016808,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 196521221748633,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "MawPlant",
+											"sid": 128263482850713,
+											"parameters": {
+												"comparison": 0,
+												"number": "8"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 747694263591982,
+											"parameters": {
+												"name": "\"DamagePlayer\"",
+												"parameter-n": [
+													"2"
+												]
+											}
+										}
+									],
+									"sid": 568169070794703
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 124872859194550
+		},
+		{
+			"eventType": "comment",
+			"text": "Game Over by death"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 501182954961518,
+					"parameters": {
+						"instance-variable": "HP",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 726420970673400,
+					"parameters": {
+						"name": "\"Pause\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 282085145300030
+				},
+				{
+					"id": "stop-animation",
+					"objectClass": "Player",
+					"sid": 379869406765571
+				},
+				{
+					"id": "stop-flashing",
+					"objectClass": "Player",
+					"sid": 133480497789234,
+					"behaviorType": "Flash"
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "GameOver",
+					"sid": 984286861648270
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "GameOver",
+					"sid": 933363356724580,
+					"parameters": {
+						"frame-number": "ActualLanguage = 0 ? 0 : 1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "GameOver",
+					"sid": 764444002402317,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 673037307486384,
+					"parameters": {
+						"seconds": "2.5"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 162191311549104,
+					"parameters": {
+						"layout": "MainMenu"
+					}
+				}
+			],
+			"sid": 733784663622999
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 332415483634620,
+							"parameters": {
+								"name": "\"DamagePlayer\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Player",
+							"sid": 722809593289410,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "2"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Player",
+							"sid": 922255521439848,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Function.Param(0)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "HealthBar",
+							"sid": 733137872556423,
+							"parameters": {
+								"frame-number": "Player.HP"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 397995040457588,
+							"parameters": {
+								"audio-file": "player-damage",
+								"loop": "not-looping",
+								"volume": "SFXVolume",
+								"tag-optional": "\"sfx\""
+							}
+						}
+					],
+					"sid": 227026300636164
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 150298161796567,
+							"parameters": {
+								"name": "\"HealthPlayer\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 317568787757107,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 232980511883515,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 2,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 841287941383144,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Function.Param(0)"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "HealthBar",
+									"sid": 424872154320838,
+									"parameters": {
+										"frame-number": "Player.HP"
+									}
+								}
+							],
+							"sid": 833508100966532
+						}
+					]
+				}
+			],
+			"sid": 421081405943926
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Zone",
+					"sid": 987382945813257,
+					"parameters": {
+						"object": "Player"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 697210963833770,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 474976685474363,
+							"parameters": {
+								"first-value": "Player.ActualZone",
+								"comparison": 1,
+								"second-value": "Zone.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 947703254488702,
+							"parameters": {
+								"instance-variable": "ActualZone",
+								"value": "Zone.UID"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 974332453918092,
+							"parameters": {
+								"name": "\"RespawnEnemies\"",
+								"parameter-n": [
+									"Player.ActualZone"
+								]
+							}
+						}
+					],
+					"sid": 851158429377013
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Skills",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Weapon Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 341685025454395,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayInventory",
+							"sid": 387485428470060,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "SlashDamageCollider",
+							"sid": 797347768183229,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "SlashDamageCollider",
+							"sid": 384335683892865,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "SlashDamageCollider",
+							"sid": 297974881754618,
+							"parameters": {
+								"animation": "\"Slash_\" & Player.VisionAngle",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 379470884005165,
+							"parameters": {
+								"seconds": "0.25"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 141115228335054,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"slash\"",
+								"loop": "not-looping",
+								"volume": "SFXVolume",
+								"tag-optional": "\"sfx\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SlashDamageCollider",
+							"sid": 891953608920704,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 317779297414416,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "SlashDamageCollider",
+									"sid": 916109480488337,
+									"parameters": {
+										"object": "Gongo"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 225045337946798,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Damage Knockback"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 492322780552760,
+											"parameters": {
+												"instance-variable": "VisionAngle",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Gongo",
+											"sid": 379532752317214,
+											"parameters": {
+												"x": "Gongo.X + 20",
+												"y": "Gongo.Y"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Gongo",
+											"sid": 925000486374654,
+											"parameters": {
+												"instance-variable": "HealthPoints",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 648817568286775
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 924747042368372,
+											"parameters": {
+												"instance-variable": "VisionAngle",
+												"comparison": 0,
+												"value": "90"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Gongo",
+											"sid": 616678130947083,
+											"parameters": {
+												"x": "Gongo.X",
+												"y": "Gongo.Y + 20"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Gongo",
+											"sid": 945390075090557,
+											"parameters": {
+												"instance-variable": "HealthPoints",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 144445325471365
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 148165449942587,
+											"parameters": {
+												"instance-variable": "VisionAngle",
+												"comparison": 0,
+												"value": "180"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Gongo",
+											"sid": 211101565586242,
+											"parameters": {
+												"x": "Gongo.X - 20",
+												"y": "Gongo.Y"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Gongo",
+											"sid": 834104223773274,
+											"parameters": {
+												"instance-variable": "HealthPoints",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 573611495425760
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 778755727709841,
+											"parameters": {
+												"instance-variable": "VisionAngle",
+												"comparison": 0,
+												"value": "270"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Gongo",
+											"sid": 432531764691361,
+											"parameters": {
+												"x": "Gongo.X",
+												"y": "Gongo.Y - 20"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Gongo",
+											"sid": 196695389177857,
+											"parameters": {
+												"instance-variable": "HealthPoints",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 212239495660789
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Gongo",
+											"sid": 975628683326152,
+											"parameters": {
+												"instance-variable": "HealthPoints",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 739877946295348,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 890867193533873,
+													"parameters": {
+														"first-value": "random(0, 100)",
+														"comparison": 2,
+														"second-value": "30"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 441439769324070,
+													"parameters": {
+														"object-to-create": "DropHeart",
+														"layer": "3",
+														"x": "Gongo.X",
+														"y": "Gongo.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "DropHeart",
+													"sid": 593195220088709,
+													"parameters": {
+														"width": "5",
+														"height": "5"
+													}
+												}
+											],
+											"sid": 308644766859980
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Gongo",
+													"sid": 521466398018110
+												}
+											],
+											"sid": 434280324708598
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Player Directional Attack"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 175011556015817,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 210328485109335,
+							"parameters": {
+								"width": "24",
+								"height": "8"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 963384181211859,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 257590024548311,
+							"parameters": {
+								"x": "Player.X - 8",
+								"y": "Player.Y - 8"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 391193068983241,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 710724598254363
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 393348782351868,
+							"parameters": {
+								"key": 83
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 737420945560426,
+							"parameters": {
+								"width": "24",
+								"height": "8"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 788544047631516,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 736134967735584,
+							"parameters": {
+								"x": "Player.X - 8",
+								"y": "Player.Y + Player.Height"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 497748883552641,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 721335055768818
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 676832397431343,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 998383810769746,
+							"parameters": {
+								"width": "8",
+								"height": "32"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 934904135124544,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 814388483881072,
+							"parameters": {
+								"x": "Player.X - 8",
+								"y": "Player.Y - 8"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 155360731027510,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 913641914060552
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 749350190389022,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 485837720741109,
+							"parameters": {
+								"width": "8",
+								"height": "32"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 900825435384965,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 851541500550440,
+							"parameters": {
+								"x": "Player.X + Player.Width",
+								"y": "Player.Y - 8"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 430615197081967,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 242857356413593
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 691593866963341,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 931326669726228,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 897801127904572,
+							"parameters": {
+								"width": "16",
+								"height": "16"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 789042787775740,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 809272432078972,
+							"parameters": {
+								"x": "Player.X - Player.Width",
+								"y": "Player.Y - (Player.Height / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 293323540554090,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 316939003174606
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 286688125816727,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 325285684970344,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 646597873868140,
+							"parameters": {
+								"width": "16",
+								"height": "16"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 277594830693153,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 140351768536856,
+							"parameters": {
+								"x": "Player.X + (Player.Width / 2)",
+								"y": "Player.Y - (Player.Height / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 652787901357043,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 650258719607408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 908244731922647,
+							"parameters": {
+								"key": 83
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 173590740437146,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 126001099296281,
+							"parameters": {
+								"width": "16",
+								"height": "16"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 823767206985779,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 328083662268938,
+							"parameters": {
+								"x": "Player.X - Player.Width",
+								"y": "Player.Y + (Player.Height / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 520859492791436,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 468483987566340
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 483389731311280,
+							"parameters": {
+								"key": 83
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 883202924681297,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "SlashDamageCollider",
+							"sid": 966813648036564,
+							"parameters": {
+								"width": "16",
+								"height": "16"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "SlashDamageCollider",
+							"sid": 727779386859850,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "SlashDamageCollider",
+							"sid": 907194267892747,
+							"parameters": {
+								"x": "Player.X + (Player.Width / 2)",
+								"y": "Player.Y + (Player.Height / 2)"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "SlashDamageCollider",
+							"sid": 801852251089193,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 911590468576115
+				}
+			],
+			"sid": 301439244508651
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 460600997468081,
+					"parameters": {
+						"object": "DropHeart"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 997866731169940,
+					"parameters": {
+						"name": "\"HealthPlayer\"",
+						"parameter-n": [
+							"1"
+						]
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "DropHeart",
+					"sid": 783282098176996
+				}
+			],
+			"sid": 535107708701394
+		}
+	],
+	"sid": 700355859081888
+}

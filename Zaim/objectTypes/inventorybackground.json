@@ -1,0 +1,57 @@
+{
+	"name": "InventoryBackground",
+	"plugin-id": "Sprite",
+	"sid": 554750978225391,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 946,
+						"height": 166,
+						"originX": 0.052854122621564484,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6890567,
+						"collisionPoly": {
+							"points": [
+								0.0010570824524312897,
+								0.006024096385542169,
+								0.5,
+								0.006024096385542169,
+								0.9978858350951374,
+								0.006024096385542169,
+								0.9989429175475687,
+								0.5,
+								0.9989429175475687,
+								0.9939759036144579,
+								0.5,
+								0.9939759036144579,
+								0,
+								0.9939759036144579,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 995075233794552,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

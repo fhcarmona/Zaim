@@ -1,0 +1,66 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "comment",
+			"text": "Skip intro system"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 353435261915037
+				},
+				{
+					"id": "compare-time",
+					"objectClass": "System",
+					"sid": 192811026368816,
+					"parameters": {
+						"comparison": 5,
+						"time-seconds": "21"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "pause",
+					"objectClass": "Video",
+					"sid": 950080680590546
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Video",
+					"sid": 396898358941576,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 131400806262027,
+					"parameters": {
+						"layout": "MainMenu"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 674207942151152,
+					"parameters": {
+						"name": "\"DefaultLocalStorage\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 592373562215778
+		}
+	],
+	"sid": 945613132808463
+}

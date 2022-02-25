@@ -1,0 +1,201 @@
+{
+	"name": "SpriteEnemyAlien",
+	"plugin-id": "Sprite",
+	"sid": 202181480941169,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 518923010891811
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 774176788098378
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 106,
+						"height": 145,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5066283,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 106,
+						"height": 132,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 544627,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 931832568435653,
+				"name": "Walk_0",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 106,
+						"height": 145,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9377199,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 106,
+						"height": 158,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7223463,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 106,
+						"height": 158,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7500638,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 182806267486927,
+				"name": "Walk_90",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 106,
+						"height": 145,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6339818,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 106,
+						"height": 145,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 604182,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 208,
+						"height": 208,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8729632,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 406698937795511,
+				"name": "Walk_180",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 106,
+						"height": 145,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3515225,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 106,
+						"height": 119,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6092012,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 106,
+						"height": 106,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6278481,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 720635616838948,
+				"name": "Walk_270",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

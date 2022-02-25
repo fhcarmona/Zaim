@@ -1,0 +1,14 @@
+{
+	"name": "SliderSoundEffects",
+	"plugin-id": "sliderbar",
+	"sid": 995944129326482,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 155707505542906
+		}
+	]
+}

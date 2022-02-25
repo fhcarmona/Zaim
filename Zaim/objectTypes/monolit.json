@@ -1,0 +1,61 @@
+{
+	"name": "Monolit",
+	"plugin-id": "Sprite",
+	"sid": 781477708117249,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 965205683801175
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1519,
+						"height": 1316,
+						"originX": 0.48946675444371296,
+						"originY": 0.523936170212766,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 616663,
+						"collisionPoly": {
+							"points": [
+								0.04213298285297849,
+								0.4802431682504057,
+								0.301184987162508,
+								0.2644376939100334,
+								0.43910466576972423,
+								0,
+								0.6774193500318836,
+								0.07598783562701518,
+								0.7070441036003843,
+								0.4422492355357368,
+								1,
+								0.6626139767354743,
+								0.6846609713609004,
+								0.8844984785220539
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 115224169181183,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

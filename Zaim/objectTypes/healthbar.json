@@ -1,0 +1,127 @@
+{
+	"name": "HealthBar",
+	"plugin-id": "Sprite",
+	"sid": 189687284402687,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 565768222092264
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 234,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8052687,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.32051282051282054,
+								0,
+								0.32051282051282054,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 234,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5515015,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.32051282051282054,
+								0,
+								0.32051282051282054,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 234,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5571360,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.32051282051282054,
+								0,
+								0.32051282051282054,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 234,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3810113,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.32051282051282054,
+								0,
+								0.32051282051282054,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 192843160308586,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

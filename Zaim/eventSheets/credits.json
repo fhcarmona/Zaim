@@ -1,0 +1,103 @@
+{
+	"name": "Credits",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-time",
+					"objectClass": "System",
+					"sid": 777766741202403,
+					"parameters": {
+						"comparison": 0,
+						"time-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 410619384372916,
+					"parameters": {
+						"name": "\"GetLanguageText\"",
+						"parameter-n": [
+							"LayoutName"
+						]
+					}
+				}
+			],
+			"sid": 136616962978676,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 749422368375466,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Credits\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 401053091996379,
+							"parameters": {
+								"name": "\"PlayMusic\"",
+								"parameter-n": [
+									"\"MenuTheme\""
+								]
+							}
+						}
+					],
+					"sid": 207369536775113
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-typewriter-text-finished",
+					"objectClass": "FinalText",
+					"sid": 690641041567887
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 801690733484864,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 563682869488329
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 390817587807887,
+					"parameters": {
+						"layout": "Loader"
+					}
+				}
+			],
+			"sid": 172268604128951
+		}
+	],
+	"sid": 961131432648423
+}

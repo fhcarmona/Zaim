@@ -1,0 +1,688 @@
+{
+	"name": "Inventory",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "DialogueSystem"
+		},
+		{
+			"eventType": "variable",
+			"name": "OpenedInventory",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Check if the inventory is opened",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 311814892951327
+		},
+		{
+			"eventType": "comment",
+			"text": "Put the UID item in the array, move to layer UI (just to pin the icon in a real size) to be use on inventory"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 345684462195980,
+					"parameters": {
+						"object": "InventoryItems"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-at-xy",
+					"objectClass": "ArrayInventory",
+					"sid": 672811735165576,
+					"parameters": {
+						"x": "InventoryItems.AnimationFrame",
+						"y": "0",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "ArrayInventory",
+					"sid": 362655637988478,
+					"parameters": {
+						"x": "InventoryItems.AnimationFrame",
+						"y": "1",
+						"value": "InventoryItems.UID"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "InventoryItems",
+					"sid": 604369262953726,
+					"parameters": {
+						"width": "100",
+						"height": "100"
+					}
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "InventoryItems",
+					"sid": 727189529031135,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "InventoryItems",
+					"sid": 560211910695041,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 875551767620809,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Biocapsule"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "InventoryItems",
+							"sid": 985491666263655,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 487349233180328,
+							"parameters": {
+								"name": "\"DialogueCreate\"",
+								"parameter-n": [
+									"\"Biocapsule\""
+								]
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 276480321792808,
+							"parameters": {
+								"audio-file": "item",
+								"loop": "not-looping",
+								"volume": "SFXVolume",
+								"tag-optional": "\"sfx\""
+							}
+						}
+					],
+					"sid": 140995816805359
+				},
+				{
+					"eventType": "comment",
+					"text": "Bamboo Weapon"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "InventoryItems",
+							"sid": 845111957730869,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 511454313025202
+				},
+				{
+					"eventType": "comment",
+					"text": "Mineral"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "InventoryItems",
+							"sid": 983488093260460,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 820024821927556,
+							"parameters": {
+								"name": "\"DialogueCreate\"",
+								"parameter-n": [
+									"\"Mineral\""
+								]
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 746374772864147,
+							"parameters": {
+								"audio-file": "item",
+								"loop": "not-looping",
+								"volume": "SFXVolume",
+								"tag-optional": "\"sfx\""
+							}
+						}
+					],
+					"sid": 120377869035696
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Active or deactive inventory"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 327376466569115,
+					"parameters": {
+						"key": 73
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "DialogueBox",
+					"sid": 382618012546488,
+					"isInverted": true
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "MenuIngame",
+					"sid": 775705103482035,
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 722711787027953,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 279767142253029,
+							"parameters": {
+								"variable": "OpenedInventory",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 600566167537306,
+							"parameters": {
+								"name": "\"Inventory\"",
+								"parameter-n": [
+									"1"
+								]
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 325971181900766,
+							"parameters": {
+								"name": "\"Pause\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 311986965461101
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 227753145002446
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 953278088371539,
+							"parameters": {
+								"name": "\"Inventory\"",
+								"parameter-n": [
+									"0"
+								]
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 268404373081908,
+							"parameters": {
+								"name": "\"UnPause\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 172394747183724
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Verify in the array if has a item that was been pickup and show the inventory (block every other event)"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 206043296572352,
+					"parameters": {
+						"name": "\"Inventory\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 499982611223403,
+					"parameters": {
+						"variable": "OpenedInventory",
+						"value": "Function.Param(0)"
+					}
+				}
+			],
+			"sid": 537661636855079,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 202726618643187,
+							"parameters": {
+								"first-value": "Function.Param(0)",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "InventoryBackground",
+							"sid": 441781090013187,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 965675135546017
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 889245040048009
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "InventoryBackground",
+							"sid": 201857845281221,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 648595861741127
+				},
+				{
+					"eventType": "comment",
+					"text": "For each value in the array"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "ArrayInventory",
+							"sid": 494371751807414,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 191957851430476,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Check if the Player has a item (indicates by value 1 on (x, 0) array)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 805617247471526,
+									"parameters": {
+										"first-value": "ArrayInventory.CurY",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 565578373196579,
+									"parameters": {
+										"first-value": "ArrayInventory.CurValue",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 162875921877816,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Pick the Y stored UID, if (x, 0) is 1"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "InventoryItems",
+											"sid": 217276250649061,
+											"parameters": {
+												"unique-id": "ArrayInventory.At(ArrayInventory.CurX, 1)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 287968532027029,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Change the location of each item to especific slot in the inventory"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 878904114726669,
+													"parameters": {
+														"first-value": "ArrayInventory.CurX",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "InventoryItems",
+													"sid": 979418818175797,
+													"parameters": {
+														"x": "372",
+														"y": "12"
+													}
+												}
+											],
+											"sid": 180404085289612
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 930340218752748,
+													"parameters": {
+														"first-value": "ArrayInventory.CurX",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "InventoryItems",
+													"sid": 556234393226005,
+													"parameters": {
+														"x": "485",
+														"y": "15"
+													}
+												}
+											],
+											"sid": 331914015611896
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 862104138931115,
+													"parameters": {
+														"first-value": "ArrayInventory.CurX",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "InventoryItems",
+													"sid": 342014837596914,
+													"parameters": {
+														"x": "602",
+														"y": "13"
+													}
+												}
+											],
+											"sid": 699761776038736
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 368364884130834,
+													"parameters": {
+														"first-value": "ArrayInventory.CurX",
+														"comparison": 0,
+														"second-value": "3"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 450401515406941
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 439319418455514,
+													"parameters": {
+														"first-value": "ArrayInventory.CurX",
+														"comparison": 0,
+														"second-value": "4"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 369354201657582
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 806279889412754,
+													"parameters": {
+														"first-value": "ArrayInventory.CurX",
+														"comparison": 0,
+														"second-value": "5"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 678364801878484
+										},
+										{
+											"eventType": "comment",
+											"text": "Show or hide inventory"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 619314520947791,
+													"parameters": {
+														"first-value": "Function.Param(0)",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "InventoryItems",
+													"sid": 230285635791434,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 763115982280176
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 624411272910921
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "InventoryItems",
+													"sid": 399095358590695,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 485739160792202
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 750701370702758
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 324781706435270,
+					"parameters": {
+						"text": "\"\""
+					}
+				}
+			],
+			"sid": 423988075381812,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "ArrayInventory",
+							"sid": 752454790672042,
+							"parameters": {
+								"axes": "xy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "TextDebug",
+							"sid": 234880895013803,
+							"parameters": {
+								"text": "\"XY(\" & ArrayInventory.CurX & \", \" & ArrayInventory.CurY & \") = \" & ArrayInventory.CurValue & \" | \""
+							}
+						}
+					],
+					"sid": 875665111533079
+				}
+			]
+		}
+	],
+	"sid": 632288097075197
+}
